@@ -8,7 +8,7 @@ diff -u hdbscan/hdbscan/_hdbscan_reachability.pyx scikit-learn/sklearn/cluster/_
 diff -u hdbscan/hdbscan/_hdbscan_tree.pyx scikit-learn/sklearn/cluster/_hdbscan/_hdbscan_tree.pyx >> $PATCH_FILE
 diff -u hdbscan/hdbscan/hdbscan_.py scikit-learn/sklearn/cluster/_hdbscan/hdbscan_.py >> $PATCH_FILE
 
-diff2html -i file -F index_raw.html -- $PATCH_FILE
+diff2html -i file -F index_raw.html -t "HDBSCAN PR Diff" -- $PATCH_FILE
 
 # Have "Files changed open by default"
 sed 's/fileListToggle(false)/fileListToggle(true)/' index_raw.html > index.html
