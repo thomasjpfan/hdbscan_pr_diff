@@ -1,5 +1,9 @@
 #!/bin/sh
 
+pushd scikit-learn
+git pull origin hdbscan
+popd
+
 PATCH_FILE=patch.diff
 
 diff -u hdbscan/hdbscan/_hdbscan_boruvka.pyx scikit-learn/sklearn/cluster/_hdbscan/_hdbscan_boruvka.pyx > $PATCH_FILE
