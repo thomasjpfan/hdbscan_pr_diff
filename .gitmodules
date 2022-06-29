@@ -1,0 +1,6 @@
+[submodule "hdbscan"]
+	path = hdbscan
+	url = https://github.com/scikit-learn-contrib/hdbscan
+[submodule "scikit-learn"]
+	path = scikit-learn
+	url = https://github.com/Micky774/scikit-learn
