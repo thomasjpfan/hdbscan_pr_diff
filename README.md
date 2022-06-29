@@ -5,6 +5,8 @@
 ## How to build
 
 ```bash
+git submodule init
+git submodule update
 npm install -g diff2html-cli
 ./make.sh
 ```
