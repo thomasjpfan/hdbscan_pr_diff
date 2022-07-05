@@ -958,7 +958,7 @@
              if left_dist < right_dist:
                  self.dual_tree_traversal(left, node2)
 --- hdbscan/hdbscan/_hdbscan_linkage.pyx	2022-06-28 16:56:02.000000000 -0400
-+++ scikit-learn/sklearn/cluster/_hdbscan/_hdbscan_linkage.pyx	2022-06-28 16:59:43.000000000 -0400
++++ scikit-learn/sklearn/cluster/_hdbscan/_hdbscan_linkage.pyx	2022-07-05 12:54:29.000000000 -0400
 @@ -1,15 +1,15 @@
 -# cython: boundscheck=False
 -# cython: nonecheck=False
@@ -1003,6 +1003,21 @@
  cpdef np.ndarray[np.double_t, ndim=2] label(np.ndarray[np.double_t, ndim=2] L):
  
      cdef np.ndarray[np.double_t, ndim=2] result_arr
+@@ -239,14 +239,3 @@
+         U.union(aa, bb)
+ 
+     return result_arr
+-
+-
+-cpdef np.ndarray[np.double_t, ndim=2] single_linkage(distance_matrix):
+-
+-    cdef np.ndarray[np.double_t, ndim=2] hierarchy
+-    cdef np.ndarray[np.double_t, ndim=2] for_labelling
+-
+-    hierarchy = mst_linkage_core(distance_matrix)
+-    for_labelling = hierarchy[np.argsort(hierarchy.T[2]), :]
+-
+-    return label(for_labelling)
 --- hdbscan/hdbscan/_hdbscan_reachability.pyx	2022-06-28 16:56:02.000000000 -0400
 +++ scikit-learn/sklearn/cluster/_hdbscan/_hdbscan_reachability.pyx	2022-06-28 16:59:43.000000000 -0400
 @@ -1,6 +1,3 @@
@@ -1308,7 +1323,7 @@
 -    return (labels, probs, stabilities)
 +    return (labels, probs)
 --- hdbscan/hdbscan/hdbscan_.py	2022-06-28 16:56:02.000000000 -0400
-+++ scikit-learn/sklearn/cluster/_hdbscan/hdbscan_.py	2022-06-28 16:59:43.000000000 -0400
++++ scikit-learn/sklearn/cluster/_hdbscan/hdbscan_.py	2022-07-05 12:54:29.000000000 -0400
 @@ -1,10 +1,16 @@
 -# -*- coding: utf-8 -*-
  """
@@ -1327,14 +1342,14 @@
  
  from sklearn.base import BaseEstimator, ClusterMixin
  from sklearn.metrics import pairwise_distances
-@@ -12,13 +18,13 @@
+@@ -12,13 +18,12 @@
  from sklearn.neighbors import KDTree, BallTree
  from joblib import Memory
  from warnings import warn
 -from sklearn.utils import check_array
-+from sklearn.utils import check_array, gen_batches, get_chunk_n_rows
- from joblib.parallel import cpu_count
+-from joblib.parallel import cpu_count
 -
++from sklearn.utils import check_array, gen_batches, get_chunk_n_rows
 +from sklearn.utils._param_validation import Interval, StrOptions, validate_params
 +from sklearn.neighbors import NearestNeighbors
  from scipy.sparse import csgraph
@@ -1344,7 +1359,7 @@
      mst_linkage_core,
      mst_linkage_core_vector,
      label,
-@@ -27,33 +33,48 @@
+@@ -27,33 +32,48 @@
      condense_tree,
      compute_stability,
      get_clusters,
@@ -1369,7 +1384,7 @@
 -#
 -# License: BSD 3 clause
 -from numpy import isclose
-+FAST_METRICS = KDTree.valid_metrics + BallTree.valid_metrics + ["cosine"]
++FAST_METRICS = KDTree.valid_metrics + BallTree.valid_metrics
 +_PARAM_CONSTRAINTS = {
 +    "min_cluster_size": [Interval(Integral, left=2, right=None, closed="left")],
 +    "min_samples": [Interval(Integral, left=1, right=None, closed="left"), None],
@@ -1409,7 +1424,7 @@
      cluster_selection_epsilon=0.0,
      max_cluster_size=0,
  ):
-@@ -62,42 +83,43 @@
+@@ -62,54 +82,48 @@
      """
      condensed_tree = condense_tree(single_linkage_tree, min_cluster_size)
      stability_dict = compute_stability(condensed_tree)
@@ -1452,23 +1467,25 @@
 -        distance_matrix = pairwise_distances(X, metric=metric, p=p)
 -    elif metric == "arccos":
 -        distance_matrix = pairwise_distances(X, metric="cosine", **kwargs)
-+    if metric == "arccos":
-+        distance_matrix = pairwise_distances(X, metric="cosine", **metric_params)
-     elif metric == "precomputed":
+-    elif metric == "precomputed":
++    if metric == "precomputed":
          # Treating this case explicitly, instead of letting
-         #   sklearn.metrics.pairwise_distances handle it,
-         #   enables the usage of numpy.inf in the distance
-         #   matrix to indicate missing distance information.
+-        #   sklearn.metrics.pairwise_distances handle it,
+-        #   enables the usage of numpy.inf in the distance
+-        #   matrix to indicate missing distance information.
 -        # TODO: Check if copying is necessary
 -        distance_matrix = X.copy()
++        # sklearn.metrics.pairwise_distances handle it,
++        # enables the usage of numpy.inf in the distance
++        # matrix to indicate missing distance information.
 +        distance_matrix = X
      else:
 -        distance_matrix = pairwise_distances(X, metric=metric, **kwargs)
 +        distance_matrix = pairwise_distances(X, metric=metric, **metric_params)
  
      if issparse(distance_matrix):
-         # raise TypeError('Sparse distance matrices not yet supported')
-@@ -105,11 +127,7 @@
+-        # raise TypeError('Sparse distance matrices not yet supported')
+         return _hdbscan_sparse_distance_matrix(
              distance_matrix,
              min_samples,
              alpha,
@@ -1481,7 +1498,7 @@
          )
  
      mutual_reachability_ = mutual_reachability(distance_matrix, min_samples, alpha)
-@@ -126,40 +144,14 @@
+@@ -126,59 +140,22 @@
              UserWarning,
          )
  
@@ -1523,17 +1540,29 @@
 +    **metric_params,
  ):
      assert issparse(X)
-     # Check for connected component on X
-@@ -176,7 +168,7 @@
+-    # Check for connected component on X
+-    if csgraph.connected_components(X, directed=False, return_labels=False) > 1:
+-        raise ValueError(
+-            "Sparse distance matrix has multiple connected "
+-            "components!\nThat is, there exist groups of points "
+-            "that are completely disjoint -- there are no distance "
+-            "relations connecting them\n"
+-            "Run hdbscan on each component."
+-        )
+-
+-    lil_matrix = X.tolil()
  
      # Compute sparse mutual reachability graph
      # if max_dist > 0, max distance to use when the reachability is infinite
 -    max_dist = kwargs.get("max_dist", 0.0)
 +    max_dist = metric_params.get("max_dist", 0.0)
      mutual_reachability_ = sparse_mutual_reachability(
-         lil_matrix, min_points=min_samples, max_dist=max_dist, alpha=alpha
+-        lil_matrix, min_points=min_samples, max_dist=max_dist, alpha=alpha
++        X.tolil(), min_points=min_samples, max_dist=max_dist, alpha=alpha
      )
-@@ -190,12 +182,10 @@
+     # Check connected component on mutual reachability
+     # If more than one component, it means that even if the distance matrix X
+@@ -190,12 +167,10 @@
          > 1
      ):
          raise ValueError(
@@ -1550,7 +1579,7 @@
              % (min_samples, min_samples)
          )
  
-@@ -213,228 +203,88 @@
+@@ -213,228 +188,83 @@
      # Convert edge list into standard hierarchical clustering format
      single_linkage_tree = label(min_spanning_tree)
  
@@ -1659,15 +1688,59 @@
 -    min_spanning_tree = min_spanning_tree[np.argsort(min_spanning_tree.T[2]), :]
 -    # Convert edge list into standard hierarchical clustering format
 -    single_linkage_tree = label(min_spanning_tree)
+-
+-    if gen_min_span_tree:
+-        return single_linkage_tree, min_spanning_tree
+-    else:
+-        return single_linkage_tree, None
+-
+-
+-def _hdbscan_boruvka_kdtree(
+-    X,
+-    min_samples=5,
+-    alpha=1.0,
+-    metric="minkowski",
+-    p=2,
+-    leaf_size=40,
+-    approx_min_span_tree=True,
+-    gen_min_span_tree=False,
+-    core_dist_n_jobs=4,
+-    **kwargs
+-):
+-    if leaf_size < 3:
+-        leaf_size = 3
+-
+-    if core_dist_n_jobs < 1:
+-        core_dist_n_jobs = max(cpu_count() + 1 + core_dist_n_jobs, 1)
+ 
+-    if X.dtype != np.float64:
+-        X = X.astype(np.float64)
++    return _process_mst(min_spanning_tree)
+ 
+-    tree = KDTree(X, metric=metric, leaf_size=leaf_size, **kwargs)
+-    alg = KDTreeBoruvkaAlgorithm(
+-        tree,
+-        min_samples,
+-        metric=metric,
+-        leaf_size=leaf_size // 3,
+-        approx_min_span_tree=approx_min_span_tree,
+-        n_jobs=core_dist_n_jobs,
+-        **kwargs
+-    )
+-    min_spanning_tree = alg.spanning_tree()
+-    # Sort edges of the min_spanning_tree by weight
+-    row_order = np.argsort(min_spanning_tree.T[2])
+-    min_spanning_tree = min_spanning_tree[row_order, :]
+-    # Convert edge list into standard hierarchical clustering format
+-    single_linkage_tree = label(min_spanning_tree)
  
 -    if gen_min_span_tree:
 -        return single_linkage_tree, min_spanning_tree
 -    else:
 -        return single_linkage_tree, None
-+    return _process_mst(min_spanning_tree)
- 
- 
--def _hdbscan_boruvka_kdtree(
+-
+-
+-def _hdbscan_boruvka_balltree(
 +def _hdbscan_boruvka(
      X,
 +    algo,
@@ -1687,56 +1760,9 @@
 -    if leaf_size < 3:
 -        leaf_size = 3
 +    leaf_size = max(leaf_size, 3)
- 
--    if core_dist_n_jobs < 1:
--        core_dist_n_jobs = max(cpu_count() + 1 + core_dist_n_jobs, 1)
-+    n_jobs = 1 if n_jobs == 0 else n_jobs
-+    if n_jobs < 0:
-+        n_jobs = max(cpu_count() + n_jobs + 1, 1)
- 
--    if X.dtype != np.float64:
--        X = X.astype(np.float64)
 +    Tree = KDTree if algo == "kd_tree" else BallTree
 +    tree = Tree(X, metric=metric, leaf_size=leaf_size, **metric_params)
  
--    tree = KDTree(X, metric=metric, leaf_size=leaf_size, **kwargs)
--    alg = KDTreeBoruvkaAlgorithm(
--        tree,
--        min_samples,
--        metric=metric,
--        leaf_size=leaf_size // 3,
--        approx_min_span_tree=approx_min_span_tree,
--        n_jobs=core_dist_n_jobs,
--        **kwargs
--    )
--    min_spanning_tree = alg.spanning_tree()
--    # Sort edges of the min_spanning_tree by weight
--    row_order = np.argsort(min_spanning_tree.T[2])
--    min_spanning_tree = min_spanning_tree[row_order, :]
--    # Convert edge list into standard hierarchical clustering format
--    single_linkage_tree = label(min_spanning_tree)
--
--    if gen_min_span_tree:
--        return single_linkage_tree, min_spanning_tree
--    else:
--        return single_linkage_tree, None
--
--
--def _hdbscan_boruvka_balltree(
--    X,
--    min_samples=5,
--    alpha=1.0,
--    metric="minkowski",
--    p=2,
--    leaf_size=40,
--    approx_min_span_tree=True,
--    gen_min_span_tree=False,
--    core_dist_n_jobs=4,
--    **kwargs
--):
--    if leaf_size < 3:
--        leaf_size = 3
--
 -    if core_dist_n_jobs < 1:
 -        core_dist_n_jobs = max(cpu_count() + 1 + core_dist_n_jobs, 1)
 -
@@ -1775,9 +1801,9 @@
 -        return single_linkage_tree, min_spanning_tree
 -    else:
 -        return single_linkage_tree, None
--
 +    min_spanning_tree = out.spanning_tree()
  
+-
 -def check_precomputed_distance_matrix(X):
 -    """Perform check_array(X) after removing infinite values (numpy.inf) from the given distance matrix."""
 -    tmp = X.copy()
@@ -1830,7 +1856,7 @@
  
  
  def remap_single_linkage_tree(tree, internal_to_raw, outliers):
-@@ -476,16 +326,11 @@
+@@ -476,16 +306,11 @@
      return tree
  
  
@@ -1851,7 +1877,7 @@
      if issparse(matrix):
          row_indices = np.array(
              [i for i, row in enumerate(matrix.tolil().data) if np.all(np.isfinite(row))]
-@@ -495,6 +340,12 @@
+@@ -495,6 +320,12 @@
      return row_indices
  
  
@@ -1864,7 +1890,7 @@
  def hdbscan(
      X,
      min_cluster_size=5,
-@@ -502,18 +353,14 @@
+@@ -502,18 +333,14 @@
      alpha=1.0,
      cluster_selection_epsilon=0.0,
      max_cluster_size=0,
@@ -1888,7 +1914,7 @@
  ):
      """Perform HDBSCAN clustering from a vector array or distance matrix.
  
-@@ -522,111 +369,95 @@
+@@ -522,111 +349,95 @@
      X : array or sparse (CSR) matrix of shape (n_samples, n_features), or \
              array of shape (n_samples, n_samples)
          A feature array, or array of distances between samples if
@@ -1931,14 +1957,14 @@
 +    cluster_selection_epsilon : float, default=0.0
 +        A distance threshold. Clusters below this value will be merged.
 +        See [3]_ for more information.
- 
--    metric : string or callable, optional (default='minkowski')
++
 +    max_cluster_size : int, default=0
 +        A limit to the size of clusters returned by the `eom` cluster selection
 +        algorithm. Has no effect if `cluster_selection_method=leaf`. Can be
 +        overridden in rare cases by a high value for
 +        `cluster_selection_epsilon`.
-+
+ 
+-    metric : string or callable, optional (default='minkowski')
 +    metric : str or callable, default='minkowski'
          The metric to use when calculating distance between instances in a
 -        feature array. If metric is a string or callable, it must be one of
@@ -1954,7 +1980,8 @@
 -        Leaf size for trees responsible for fast nearest
 -        neighbour queries.
 +        feature array.
-+
+ 
+-    algorithm : string, optional (default='best')
 +        - If metric is a string or callable, it must be one of
 +          the options allowed by `metrics.pairwise.pairwise_distances` for its
 +          metric parameter.
@@ -1967,8 +1994,7 @@
 +        large dataset size and small leaf_size may induce excessive memory
 +        usage. If you are running out of memory consider increasing the
 +        `leaf_size` parameter.
- 
--    algorithm : string, optional (default='best')
++
 +    algorithm : str, default='auto'
          Exactly which algorithm to use; hdbscan has variants specialised
          for different characteristics of the data. By default this is set
@@ -1987,8 +2013,8 @@
 +        `prims` approach is used.
 +
 +        If the `X` passed during `fit` is sparse or `metric` is not a valid
-+        metric for neither `KDTree` nor `BallTree` and is something other than
-+        "cosine" and "arccos", then it resolves to use the `generic` algorithm.
++        metric for neither `KDTree` nor `BallTree` then it resolves to use
++        the `generic` algorithm.
 +
 +        Available algorithms:
 +        - `'best'`
@@ -2031,18 +2057,14 @@
          most fine grained and homogeneous clusters. Options are:
 -            * ``eom``
 -            * ``leaf``
-+        - `eom`
-+        - `leaf`
- 
+-
 -    allow_single_cluster : bool, optional (default=False)
 -        By default HDBSCAN* will not produce a single cluster, setting this
 -        to t=True will override this and allow single cluster results in
 -        the case that you feel this is a valid result for your dataset.
 -        (default False)
-+    allow_single_cluster : bool, default=False
-+        By default HDBSCAN* will not produce a single cluster. Setting this to
-+        `True` will allow single cluster results in the case that you feel this
-+        is a valid result for your dataset.
++        - `eom`
++        - `leaf`
  
 -    match_reference_implementation : bool, optional (default=False)
 -        There exist some interpretational differences between this
@@ -2051,7 +2073,11 @@
 -        in clustering results. Setting this flag to True will, at a some
 -        performance cost, ensure that the clustering results match the
 -        reference implementation.
--
++    allow_single_cluster : bool, default=False
++        By default HDBSCAN* will not produce a single cluster. Setting this to
++        `True` will allow single cluster results in the case that you feel this
++        is a valid result for your dataset.
+ 
 -    **kwargs : optional
 -        Arguments passed to the distance metric
 +    metric_params : dict, default=None
@@ -2059,7 +2085,7 @@
  
      Returns
      -------
-@@ -637,25 +468,11 @@
+@@ -637,25 +448,11 @@
          Cluster membership strengths for each point. Noisy samples are assigned
          0.
  
@@ -2085,7 +2111,7 @@
      References
      ----------
  
-@@ -668,220 +485,117 @@
+@@ -668,220 +465,107 @@
         cluster tree. In Advances in Neural Information Processing Systems
         (pp. 343-351).
  
@@ -2152,6 +2178,11 @@
 -    # Python 2 and 3 compliant string_type checking
 -    if isinstance(memory, str):
 -        memory = Memory(cachedir=memory, verbose=0)
+-
+-    size = X.shape[0]
+-    min_samples = min(size - 1, min_samples)
+-    if min_samples == 0:
+-        min_samples = 1
 +        # Perform check_array(X) after removing infinite values (numpy.inf)
 +        # from the given distance matrix.
 +        tmp = X.copy()
@@ -2159,13 +2190,7 @@
 +        check_array(tmp)
 +
 +    memory = Memory(location=memory, verbose=0)
- 
-     size = X.shape[0]
-     min_samples = min(size - 1, min_samples)
-     if min_samples == 0:
-         min_samples = 1
- 
--    if algorithm != "best":
++
 +    metric_params = metric_params or {}
 +    func = None
 +    kwargs = dict(
@@ -2188,7 +2213,8 @@
 +            f"{metric} is not a valid metric for a BallTree-based algorithm. Please"
 +            " select a different metric."
 +        )
-+
+ 
+-    if algorithm != "best":
 +    if algorithm != "auto":
          if metric != "precomputed" and issparse(X) and algorithm != "generic":
 -            raise ValueError("Sparse data matrices only support algorithm 'generic'.")
@@ -2257,16 +2283,12 @@
 -                gen_min_span_tree,
 -                core_dist_n_jobs,
 -                **kwargs
+-            )
+-        else:
+-            raise TypeError("Unknown algorithm type %s specified" % algorithm)
 +            func = _hdbscan_boruvka
 +            kwargs.pop("alpha", None)
 +            kwargs["algo"] = "ball_tree"
-+        else:
-+            raise TypeError(
-+                f"Unknown algorithm type {algorithm} specified. Please select a"
-+                " supported algorithm."
-             )
--        else:
--            raise TypeError("Unknown algorithm type %s specified" % algorithm)
      else:
 -
          if issparse(X) or metric not in FAST_METRICS:
@@ -2380,7 +2402,7 @@
      """Perform HDBSCAN clustering from vector array or distance matrix.
  
      HDBSCAN - Hierarchical Density-Based Spatial Clustering of Applications
-@@ -892,105 +606,93 @@
+@@ -892,105 +576,93 @@
  
      Parameters
      ----------
@@ -2405,14 +2427,14 @@
 +    cluster_selection_epsilon : float, default=0.0
 +        A distance threshold. Clusters below this value will be merged.
 +        See [5]_ for more information.
-+
+ 
+-    metric : string, or callable, optional (default='euclidean')
 +    max_cluster_size : int, default=0
 +        A limit to the size of clusters returned by the `eom` cluster selection
 +        algorithm. Has no effect if `cluster_selection_method=leaf`. Can be
 +        overridden in rare cases by a high value for
 +        `cluster_selection_epsilon`.
- 
--    metric : string, or callable, optional (default='euclidean')
++
 +    metric : str or callable, default='euclidean'
          The metric to use when calculating distance between instances in a
 -        feature array. If metric is a string or callable, it must be one of
@@ -2421,17 +2443,17 @@
 -        If metric is "precomputed", X is assumed to be a distance matrix and
 -        must be square.
 +        feature array.
- 
--    p : int, optional (default=None)
--        p value to use if using the minkowski metric.
++
 +        - If metric is a string or callable, it must be one of
 +          the options allowed by `metrics.pairwise.pairwise_distances` for its
 +          metric parameter.
  
--    alpha : float, optional (default=1.0)
+-    p : int, optional (default=None)
+-        p value to use if using the minkowski metric.
 +        - If metric is "precomputed", X is assumed to be a distance matrix and
 +          must be square.
-+
+ 
+-    alpha : float, optional (default=1.0)
 +    alpha : float, default=1.0
          A distance scaling parameter as used in robust single linkage.
          See [3]_ for more information.
@@ -2465,8 +2487,8 @@
 +        `prims` approach is used.
 +
 +        If the `X` passed during `fit` is sparse or `metric` is not a valid
-+        metric for neither `KDTree` nor `BallTree` and is something other than
-+        "cosine" and "arccos", then it resolves to use the `generic` algorithm.
++        metric for neither `KDTree` nor `BallTree` then it resolves to use
++        the `generic` algorithm.
 +
 +        Available algorithms:
 +        - `'best'`
@@ -2547,7 +2569,7 @@
  
      Attributes
      ----------
-@@ -1004,57 +706,19 @@
+@@ -1004,57 +676,19 @@
          have values assigned proportional to the degree that they
          persist as part of the cluster.
  
@@ -2618,7 +2640,7 @@
  
      References
      ----------
-@@ -1080,8 +744,20 @@
+@@ -1080,8 +714,20 @@
      .. [5] Malzer, C., & Baum, M. (2019). A Hybrid Approach To Hierarchical
             Density-based Cluster Selection. arxiv preprint 1911.02282.
  
@@ -2639,7 +2661,7 @@
      def __init__(
          self,
          min_cluster_size=5,
-@@ -1090,18 +766,13 @@
+@@ -1090,18 +736,13 @@
          max_cluster_size=0,
          metric="euclidean",
          alpha=1.0,
@@ -2662,7 +2684,7 @@
      ):
          self.min_cluster_size = min_cluster_size
          self.min_samples = min_samples
-@@ -1109,27 +780,13 @@
+@@ -1109,27 +750,13 @@
          self.max_cluster_size = max_cluster_size
          self.cluster_selection_epsilon = cluster_selection_epsilon
          self.metric = metric
@@ -2692,7 +2714,7 @@
  
      def fit(self, X, y=None):
          """Perform HDBSCAN clustering from features or distance matrix.
-@@ -1139,143 +796,112 @@
+@@ -1139,143 +766,110 @@
          X : array or sparse (CSR) matrix of shape (n_samples, n_features), or \
                  array of shape (n_samples, n_samples)
              A feature array, or array of distances between samples if
@@ -2720,9 +2742,7 @@
 -            self._all_finite = is_finite(X)
 -            if ~self._all_finite:
 +            self._all_finite = (
-+                np.all(np.isfinite(X.tocoo().data))
-+                if issparse(X)
-+                else np.all(np.isfinite(X))
++                np.all(np.isfinite(X.data)) if issparse(X) else np.all(np.isfinite(X))
 +            )
 +
 +            if not self._all_finite:
@@ -2775,14 +2795,14 @@
 -            # remap indices to align with original data in the case of non-finite entries.
 -            self._condensed_tree = remap_condensed_tree(
 -                self._condensed_tree, internal_to_raw, outliers
+-            )
+-            self._single_linkage_tree = remap_single_linkage_tree(
+-                self._single_linkage_tree, internal_to_raw, outliers
 +            # remap indices to align with original data in the case of
 +            # non-finite entries.
 +            self._single_linkage_tree_ = remap_single_linkage_tree(
 +                self._single_linkage_tree_, internal_to_raw, outliers
              )
--            self._single_linkage_tree = remap_single_linkage_tree(
--                self._single_linkage_tree, internal_to_raw, outliers
--            )
 -            new_labels = np.full(X.shape[0], -1)
 +            new_labels = np.full(self._raw_data.shape[0], -1)
              new_labels[finite_index] = self.labels_
@@ -2880,7 +2900,7 @@
          """
          if not hasattr(self, "labels_"):
              raise AttributeError("Model has not been fit to data")
-@@ -1293,20 +919,22 @@
+@@ -1293,20 +887,22 @@
          return np.average(cluster_data, weights=cluster_membership_strengths, axis=0)
  
      def weighted_cluster_medoid(self, cluster_id):
@@ -2908,7 +2928,7 @@
          """
          if not hasattr(self, "labels_"):
              raise AttributeError("Model has not been fit to data")
-@@ -1320,22 +948,26 @@
+@@ -1320,22 +916,26 @@
          mask = self.labels_ == cluster_id
          cluster_data = self._raw_data[mask]
          cluster_membership_strengths = self.probabilities_[mask]
@@ -2943,7 +2963,7 @@
  
          This represents the result of selecting a cut value for robust single linkage
          clustering. The `min_cluster_size` allows the flat clustering to declare noise
-@@ -1345,181 +977,23 @@
+@@ -1345,181 +945,23 @@
          ----------
  
          cut_distance : float
