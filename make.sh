@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 pushd scikit-learn
 git pull origin hdbscan
