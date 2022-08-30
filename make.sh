@@ -4,7 +4,7 @@ pushd scikit-learn
 git pull origin hdbscan
 popd
 
-PATCH_FILE=patch.diff
+PATCH_FILE=patch_temp.diff
 
 diff -u hdbscan/hdbscan/_hdbscan_linkage.pyx scikit-learn/sklearn/cluster/_hdbscan/_linkage.pyx  >> $PATCH_FILE
 diff -u hdbscan/hdbscan/_hdbscan_reachability.pyx scikit-learn/sklearn/cluster/_hdbscan/_reachability.pyx >> $PATCH_FILE
