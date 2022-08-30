@@ -1,6 +1,6 @@
 # HTML Diff for HDBSCAN PR
 
-![Link to HTML Diff](https://thomasjpfan.github.io/hdbscan_pr_diff/)
+[Link to HTML Diff](https://thomasjpfan.github.io/hdbscan_pr_diff/)
 
 ## How to build
 
