@@ -1,0 +1,29 @@
+name: Build page
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Nightly build at 3:42 A.M.
+    - cron: "0 */1 * * *"
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build_page:
+    name: Build Page
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - uses: actions/setup-node@v3
+      - run: npm install -g diff2html-cli
+      - run: ./make.sh
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build

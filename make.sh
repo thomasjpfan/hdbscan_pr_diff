@@ -14,5 +14,5 @@ diff -u hdbscan/hdbscan/hdbscan_.py scikit-learn/sklearn/cluster/_hdbscan/hdbsca
 diff2html -i file -F index_raw.html -t "HDBSCAN PR Diff" -- $PATCH_FILE
 
 # Have "Files changed open by default"
-sed 's/fileListToggle(false)/fileListToggle(true)/' index_raw.html > index.html
+sed 's/fileListToggle(false)/fileListToggle(true)/' index_raw.html > build/index.html
 rm index_raw.html
