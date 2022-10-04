@@ -84,7 +84,7 @@
           <path d="M6 9H3V7h3V4l5 4-5 4V9z m8-7v12c0 0.55-0.45 1-1 1H1c-0.55 0-1-0.45-1-1V2c0-0.55 0.45-1 1-1h12c0.55 0 1 0.45 1 1z m-1 0H1v12h12V2z"></path>
       </svg>      <a href="#d2h-461527" class="d2h-file-name">hdbscan/hdbscan/hdbscan_.py → scikit-learn/sklearn/cluster/_hdbscan/hdbscan.py</a>
       <span class="d2h-file-stats">
-          <span class="d2h-lines-added">+509</span>
+          <span class="d2h-lines-added">+501</span>
           <span class="d2h-lines-deleted">-1275</span>
       </span>
     </span>
@@ -8409,7 +8409,7 @@
                 <tr>
     <td class="d2h-code-linenumber d2h-info"></td>
     <td class="d2h-info">
-        <div class="d2h-code-line">@@ -1,121 +1,132 @@</div>
+        <div class="d2h-code-line">@@ -1,121 +1,127 @@</div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-del">
@@ -10201,7 +10201,7 @@
     <td class="d2h-del d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">-</span>
-            <span class="d2h-code-line-ctn">    else:</span>
+            <span class="d2h-code-line-ctn"><del>    else:</del></span>
         </div>
     </td>
 </tr><tr>
@@ -10212,7 +10212,7 @@
     <td class="d2h-del d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">-</span>
-            <span class="d2h-code-line-ctn">        distance_matrix = pairwise_distances(<del>X, metric=metric, **kwargs)</del></span>
+            <span class="d2h-code-line-ctn"><del>        distance_matrix = pairwise_distances(</del>X, metric=metric, **<del>kwargs)</del></span>
         </div>
     </td>
 </tr><tr>
@@ -10234,7 +10234,7 @@
     <td class="d2h-del d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">-</span>
-            <span class="d2h-code-line-ctn"><del>    if issparse(distance_matrix</del>)<del>:</del></span>
+            <span class="d2h-code-line-ctn">    <del>if</del> <del>issparse(distance_matrix):</del></span>
         </div>
     </td>
 </tr><tr>
@@ -10245,7 +10245,7 @@
     <td class="d2h-del d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">-</span>
-            <span class="d2h-code-line-ctn"><del>        #</del> <del>raise</del> <del>TypeError(&#x27;Sparse</del> <del>distance matrices </del>not <del>yet supported&#x27;)</del></span>
+            <span class="d2h-code-line-ctn"><del>        # raise TypeError(&#x27;Sparse distance matrices not yet supported&#x27;)</del></span>
         </div>
     </td>
 </tr><tr>
@@ -10256,7 +10256,7 @@
     <td class="d2h-del d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">-</span>
-            <span class="d2h-code-line-ctn">        <del>return</del> <del>_hdbscan_sparse_distance_matrix(</del></span>
+            <span class="d2h-code-line-ctn"><del>        return</del> <del>_hdbscan_sparse_distance_matrix(</del></span>
         </div>
     </td>
 </tr><tr>
@@ -10267,7 +10267,7 @@
     <td class="d2h-del d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">-</span>
-            <span class="d2h-code-line-ctn">            distance_matrix<del>,</del></span>
+            <span class="d2h-code-line-ctn"><del>            distance_matrix</del>,</span>
         </div>
     </td>
 </tr><tr>
@@ -10289,7 +10289,7 @@
     <td class="d2h-del d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">-</span>
-            <span class="d2h-code-line-ctn">            alpha<del>,</del></span>
+            <span class="d2h-code-line-ctn"><del>            alpha,</del></span>
         </div>
     </td>
 </tr><tr>
@@ -10311,7 +10311,7 @@
     <td class="d2h-del d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">-</span>
-            <span class="d2h-code-line-ctn"><del>            p,</del></span>
+            <span class="d2h-code-line-ctn"><del>            p</del>,</span>
         </div>
     </td>
 </tr><tr>
@@ -10355,7 +10355,7 @@
     <td class="d2h-del d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">-</span>
-            <span class="d2h-code-line-ctn"><del>        )</del></span>
+            <span class="d2h-code-line-ctn"><del>        </del>)</span>
         </div>
     </td>
 </tr><tr>
@@ -10377,7 +10377,7 @@
     <td class="d2h-del d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">-</span>
-            <span class="d2h-code-line-ctn">    <del>mutual_reachability_</del> <del>=</del> <del>mutual_reachability(distance_matrix,</del> <del>min_samples</del>, <del>alpha)</del></span>
+            <span class="d2h-code-line-ctn"><del>    </del>mutual_reachability_<del> = mutual_reachability(distance_matrix</del>, min_samples, <del>alpha)</del></span>
         </div>
     </td>
 </tr><tr>
@@ -10392,22 +10392,22 @@
         </div>
     </td>
 </tr><tr>
-    <td class="d2h-code-linenumber d2h-del d2h-change">
+    <td class="d2h-code-linenumber d2h-del">
       <div class="line-num1">117</div>
 <div class="line-num2"></div>
     </td>
-    <td class="d2h-del d2h-change">
+    <td class="d2h-del">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">-</span>
-            <span class="d2h-code-line-ctn"><del>    min_spanning_tree</del> = <del>mst_linkage_core(mutual_reachability_)</del></span>
+            <span class="d2h-code-line-ctn">    min_spanning_tree = mst_linkage_core(mutual_reachability_)</span>
         </div>
     </td>
 </tr><tr>
-    <td class="d2h-code-linenumber d2h-del d2h-change">
+    <td class="d2h-code-linenumber d2h-del">
       <div class="line-num1">118</div>
 <div class="line-num2"></div>
     </td>
-    <td class="d2h-del d2h-change">
+    <td class="d2h-del">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">-</span>
             <span class="d2h-code-line-ctn"><br></span>
@@ -10465,7 +10465,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><br></span>
+            <span class="d2h-code-line-ctn"><ins>    else:</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -10476,7 +10476,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">    else:</span>
+            <span class="d2h-code-line-ctn"><ins>        distance_matrix = pairwise_distances(</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -10487,7 +10487,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        distance_matrix = pairwise_distances(</span>
+            <span class="d2h-code-line-ctn"><ins>            </ins>X, metric=metric, <ins>n_jobs=n_jobs, </ins>**<ins>metric_params</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -10498,7 +10498,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><ins>            X, metric=metric, n_jobs=n_jobs, **metric_params</ins></span>
+            <span class="d2h-code-line-ctn"><ins>        )</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -10509,7 +10509,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><ins>        </ins>)</span>
+            <span class="d2h-code-line-ctn">    <ins>distance_matrix</ins> <ins>&#x2F;= alpha</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -10520,7 +10520,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><ins>    if</ins> <ins>alpha</ins> <ins>is</ins> not <ins>None:</ins></span>
+            <span class="d2h-code-line-ctn"><br></span>
         </div>
     </td>
 </tr><tr>
@@ -10531,7 +10531,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        <ins>if</ins> <ins>copy:</ins></span>
+            <span class="d2h-code-line-ctn"><ins>    #</ins> <ins>max_dist is only relevant for sparse and is ignored for dense</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -10542,7 +10542,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">            distance_matrix<ins> = distance_matrix &#x2F; alpha</ins></span>
+            <span class="d2h-code-line-ctn"><ins>    max_dist = metric_params.get(&quot;max_dist&quot;</ins>,<ins> 0.0)</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -10553,7 +10553,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><ins>        else:</ins></span>
+            <span class="d2h-code-line-ctn"><ins>    sparse = issparse(distance_matrix)</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -10564,7 +10564,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">            <ins>distance_matrix &#x2F;= </ins>alpha</span>
+            <span class="d2h-code-line-ctn"><ins>    distance_matrix = distance_matrix.tolil() if sparse else distance_matrix</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -10586,7 +10586,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><ins>    # max_dist is only relevant for sparse and is ignored for dense</ins></span>
+            <span class="d2h-code-line-ctn"><ins>    # Note that `distance_matrix` is manipulated in-place</ins>,<ins> however we do not</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -10597,7 +10597,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><ins>    max_dist = metric_params.get(&quot;max_dist&quot;</ins>,<ins> 0.0)</ins></span>
+            <span class="d2h-code-line-ctn"><ins>    # need it for anything else past this point</ins>,<ins> hence the operation is safe.</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -10608,7 +10608,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><ins>    sparse = issparse(distance_matrix)</ins></span>
+            <span class="d2h-code-line-ctn"><ins>    mutual_reachability_ = mutual_reachability(</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -10619,7 +10619,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><ins>    distance_matrix = distance_matrix.tolil() if sparse else distance_matrix</ins></span>
+            <span class="d2h-code-line-ctn"><ins>        distance_matrix, min_points=min_samples, max_dist=max_dist</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -10630,7 +10630,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><br></span>
+            <span class="d2h-code-line-ctn"><ins>    </ins>)</span>
         </div>
     </td>
 </tr><tr>
@@ -10641,7 +10641,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><ins>    # Note that `distance_matrix` is manipulated in-place, however we do not</ins></span>
+            <span class="d2h-code-line-ctn"><ins>    min_spanning_tree = _brute_mst(</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -10652,7 +10652,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">    <ins>#</ins> <ins>need</ins> <ins>it</ins> <ins>for anything else past this point</ins>, <ins>hence the operation is safe.</ins></span>
+            <span class="d2h-code-line-ctn"><ins>        </ins>mutual_reachability_, min_samples<ins>=min_samples</ins>, <ins>sparse=sparse</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -10663,68 +10663,13 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><ins>    mutual_reachability_ = mutual_reachability(</ins></span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins d2h-change">
-      <div class="line-num1"></div>
-<div class="line-num2">125</div>
-    </td>
-    <td class="d2h-ins d2h-change">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><ins>        distance_matrix,</ins> <ins>min_points</ins>=<ins>min_samples,</ins> <ins>max_dist=max_dist</ins></span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins d2h-change">
-      <div class="line-num1"></div>
-<div class="line-num2">126</div>
-    </td>
-    <td class="d2h-ins d2h-change">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
             <span class="d2h-code-line-ctn"><ins>    )</ins></span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins">
-      <div class="line-num1"></div>
-<div class="line-num2">127</div>
-    </td>
-    <td class="d2h-ins">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">    min_spanning_tree = _brute_mst(</span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins">
-      <div class="line-num1"></div>
-<div class="line-num2">128</div>
-    </td>
-    <td class="d2h-ins">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        mutual_reachability_, min_samples=min_samples, sparse=sparse</span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins">
-      <div class="line-num1"></div>
-<div class="line-num2">129</div>
-    </td>
-    <td class="d2h-ins">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">    )</span>
         </div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">119</div>
-<div class="line-num2">130</div>
+<div class="line-num2">125</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -10735,7 +10680,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">120</div>
-<div class="line-num2">131</div>
+<div class="line-num2">126</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -10746,7 +10691,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">121</div>
-<div class="line-num2">132</div>
+<div class="line-num2">127</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -10758,12 +10703,12 @@
 <tr>
     <td class="d2h-code-linenumber d2h-info"></td>
     <td class="d2h-info">
-        <div class="d2h-code-line">@@ -126,318 +137,44 @@</div>
+        <div class="d2h-code-line">@@ -126,318 +132,44 @@</div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">126</div>
-<div class="line-num2">137</div>
+<div class="line-num2">132</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -10774,7 +10719,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">127</div>
-<div class="line-num2">138</div>
+<div class="line-num2">133</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -10785,7 +10730,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">128</div>
-<div class="line-num2">139</div>
+<div class="line-num2">134</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -12171,7 +12116,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">140</div>
+<div class="line-num2">135</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -12182,7 +12127,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">254</div>
-<div class="line-num2">141</div>
+<div class="line-num2">136</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -12215,7 +12160,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">257</div>
-<div class="line-num2">142</div>
+<div class="line-num2">137</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -12303,7 +12248,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">143</div>
+<div class="line-num2">138</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -12314,7 +12259,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">265</div>
-<div class="line-num2">144</div>
+<div class="line-num2">139</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -12325,7 +12270,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">145</div>
+<div class="line-num2">140</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -12336,7 +12281,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">266</div>
-<div class="line-num2">146</div>
+<div class="line-num2">141</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -12347,7 +12292,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">267</div>
-<div class="line-num2">147</div>
+<div class="line-num2">142</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -12380,7 +12325,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">148</div>
+<div class="line-num2">143</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -12391,7 +12336,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">270</div>
-<div class="line-num2">149</div>
+<div class="line-num2">144</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -12424,7 +12369,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">150</div>
+<div class="line-num2">145</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -12435,7 +12380,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">151</div>
+<div class="line-num2">146</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -12446,7 +12391,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">273</div>
-<div class="line-num2">152</div>
+<div class="line-num2">147</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -12490,7 +12435,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">277</div>
-<div class="line-num2">153</div>
+<div class="line-num2">148</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -12567,7 +12512,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">154</div>
+<div class="line-num2">149</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -12578,7 +12523,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">284</div>
-<div class="line-num2">155</div>
+<div class="line-num2">150</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -12589,7 +12534,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">285</div>
-<div class="line-num2">156</div>
+<div class="line-num2">151</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -13062,7 +13007,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">157</div>
+<div class="line-num2">152</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -13073,7 +13018,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">158</div>
+<div class="line-num2">153</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -13084,7 +13029,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">159</div>
+<div class="line-num2">154</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -13095,7 +13040,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">160</div>
+<div class="line-num2">155</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -13106,7 +13051,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">328</div>
-<div class="line-num2">161</div>
+<div class="line-num2">156</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -13931,7 +13876,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">162</div>
+<div class="line-num2">157</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -13942,7 +13887,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">163</div>
+<div class="line-num2">158</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -13953,7 +13898,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">164</div>
+<div class="line-num2">159</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -13964,7 +13909,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">165</div>
+<div class="line-num2">160</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -13975,7 +13920,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">403</div>
-<div class="line-num2">166</div>
+<div class="line-num2">161</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -14085,7 +14030,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">167</div>
+<div class="line-num2">162</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -14096,7 +14041,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">168</div>
+<div class="line-num2">163</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -14107,7 +14052,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">169</div>
+<div class="line-num2">164</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -14118,7 +14063,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">413</div>
-<div class="line-num2">170</div>
+<div class="line-num2">165</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -14206,7 +14151,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">171</div>
+<div class="line-num2">166</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -14217,7 +14162,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">172</div>
+<div class="line-num2">167</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -14228,7 +14173,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">421</div>
-<div class="line-num2">173</div>
+<div class="line-num2">168</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -14415,7 +14360,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">174</div>
+<div class="line-num2">169</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -14426,7 +14371,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">438</div>
-<div class="line-num2">175</div>
+<div class="line-num2">170</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -14437,7 +14382,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">439</div>
-<div class="line-num2">176</div>
+<div class="line-num2">171</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -14459,7 +14404,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">177</div>
+<div class="line-num2">172</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -14470,7 +14415,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">441</div>
-<div class="line-num2">178</div>
+<div class="line-num2">173</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -14481,7 +14426,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">442</div>
-<div class="line-num2">179</div>
+<div class="line-num2">174</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -14492,7 +14437,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">443</div>
-<div class="line-num2">180</div>
+<div class="line-num2">175</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -14504,12 +14449,12 @@
 <tr>
     <td class="d2h-code-linenumber d2h-info"></td>
     <td class="d2h-info">
-        <div class="d2h-code-line">@@ -454,8 +191,8 @@</div>
+        <div class="d2h-code-line">@@ -454,8 +186,8 @@</div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">454</div>
-<div class="line-num2">191</div>
+<div class="line-num2">186</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -14520,7 +14465,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">455</div>
-<div class="line-num2">192</div>
+<div class="line-num2">187</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -14531,7 +14476,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">456</div>
-<div class="line-num2">193</div>
+<div class="line-num2">188</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -14564,7 +14509,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">194</div>
+<div class="line-num2">189</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -14575,7 +14520,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">195</div>
+<div class="line-num2">190</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -14586,7 +14531,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">459</div>
-<div class="line-num2">196</div>
+<div class="line-num2">191</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -14597,7 +14542,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">460</div>
-<div class="line-num2">197</div>
+<div class="line-num2">192</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -14608,7 +14553,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">461</div>
-<div class="line-num2">198</div>
+<div class="line-num2">193</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -14620,12 +14565,12 @@
 <tr>
     <td class="d2h-code-linenumber d2h-info"></td>
     <td class="d2h-info">
-        <div class="d2h-code-line">@@ -465,10 +202,10 @@</div>
+        <div class="d2h-code-line">@@ -465,10 +197,10 @@</div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">465</div>
-<div class="line-num2">202</div>
+<div class="line-num2">197</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -14636,7 +14581,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">466</div>
-<div class="line-num2">203</div>
+<div class="line-num2">198</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -14647,7 +14592,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">467</div>
-<div class="line-num2">204</div>
+<div class="line-num2">199</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -14669,7 +14614,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">205</div>
+<div class="line-num2">200</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -14680,7 +14625,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">469</div>
-<div class="line-num2">206</div>
+<div class="line-num2">201</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -14691,7 +14636,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">470</div>
-<div class="line-num2">207</div>
+<div class="line-num2">202</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -14713,7 +14658,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">208</div>
+<div class="line-num2">203</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -14724,7 +14669,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">472</div>
-<div class="line-num2">209</div>
+<div class="line-num2">204</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -14735,7 +14680,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">473</div>
-<div class="line-num2">210</div>
+<div class="line-num2">205</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -14746,7 +14691,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">474</div>
-<div class="line-num2">211</div>
+<div class="line-num2">206</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -14758,12 +14703,12 @@
 <tr>
     <td class="d2h-code-linenumber d2h-info"></td>
     <td class="d2h-info">
-        <div class="d2h-code-line">@@ -476,585 +213,183 @@</div>
+        <div class="d2h-code-line">@@ -476,585 +208,180 @@</div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">476</div>
-<div class="line-num2">213</div>
+<div class="line-num2">208</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -14774,7 +14719,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">477</div>
-<div class="line-num2">214</div>
+<div class="line-num2">209</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -14785,7 +14730,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">478</div>
-<div class="line-num2">215</div>
+<div class="line-num2">210</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -14906,7 +14851,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">216</div>
+<div class="line-num2">211</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -14917,7 +14862,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">217</div>
+<div class="line-num2">212</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -14928,7 +14873,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">218</div>
+<div class="line-num2">213</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -14939,7 +14884,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">219</div>
+<div class="line-num2">214</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -14950,7 +14895,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">220</div>
+<div class="line-num2">215</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -14961,7 +14906,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">489</div>
-<div class="line-num2">221</div>
+<div class="line-num2">216</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -14972,7 +14917,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">490</div>
-<div class="line-num2">222</div>
+<div class="line-num2">217</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -14983,7 +14928,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">491</div>
-<div class="line-num2">223</div>
+<div class="line-num2">218</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -14994,7 +14939,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">492</div>
-<div class="line-num2">224</div>
+<div class="line-num2">219</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -15005,7 +14950,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">493</div>
-<div class="line-num2">225</div>
+<div class="line-num2">220</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -15027,7 +14972,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">226</div>
+<div class="line-num2">221</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -15038,7 +14983,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">495</div>
-<div class="line-num2">227</div>
+<div class="line-num2">222</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -15049,7 +14994,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">496</div>
-<div class="line-num2">228</div>
+<div class="line-num2">223</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -15060,7 +15005,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">497</div>
-<div class="line-num2">229</div>
+<div class="line-num2">224</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -15302,7 +15247,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">230</div>
+<div class="line-num2">225</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -15313,7 +15258,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">231</div>
+<div class="line-num2">226</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -15324,7 +15269,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">232</div>
+<div class="line-num2">227</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -15335,7 +15280,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">233</div>
+<div class="line-num2">228</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -15346,7 +15291,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">234</div>
+<div class="line-num2">229</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -15357,7 +15302,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">235</div>
+<div class="line-num2">230</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -15368,7 +15313,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">236</div>
+<div class="line-num2">231</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -15379,7 +15324,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">237</div>
+<div class="line-num2">232</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -15390,7 +15335,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">238</div>
+<div class="line-num2">233</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -15401,7 +15346,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">239</div>
+<div class="line-num2">234</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -15412,7 +15357,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">240</div>
+<div class="line-num2">235</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -15423,7 +15368,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">241</div>
+<div class="line-num2">236</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -15434,7 +15379,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">519</div>
-<div class="line-num2">242</div>
+<div class="line-num2">237</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -15445,7 +15390,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">520</div>
-<div class="line-num2">243</div>
+<div class="line-num2">238</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -15456,7 +15401,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">521</div>
-<div class="line-num2">244</div>
+<div class="line-num2">239</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -15533,7 +15478,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">245</div>
+<div class="line-num2">240</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -15544,7 +15489,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">528</div>
-<div class="line-num2">246</div>
+<div class="line-num2">241</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -15555,7 +15500,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">529</div>
-<div class="line-num2">247</div>
+<div class="line-num2">242</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -15566,7 +15511,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">530</div>
-<div class="line-num2">248</div>
+<div class="line-num2">243</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -15577,7 +15522,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">531</div>
-<div class="line-num2">249</div>
+<div class="line-num2">244</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -15599,7 +15544,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">250</div>
+<div class="line-num2">245</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -15610,7 +15555,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">533</div>
-<div class="line-num2">251</div>
+<div class="line-num2">246</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -15621,7 +15566,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">534</div>
-<div class="line-num2">252</div>
+<div class="line-num2">247</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -15643,7 +15588,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">253</div>
+<div class="line-num2">248</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -15654,7 +15599,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">536</div>
-<div class="line-num2">254</div>
+<div class="line-num2">249</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -15676,7 +15621,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">255</div>
+<div class="line-num2">250</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -15687,7 +15632,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">538</div>
-<div class="line-num2">256</div>
+<div class="line-num2">251</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -15786,7 +15731,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">257</div>
+<div class="line-num2">252</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -15797,7 +15742,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">547</div>
-<div class="line-num2">258</div>
+<div class="line-num2">253</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -15896,7 +15841,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">259</div>
+<div class="line-num2">254</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -15907,7 +15852,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">260</div>
+<div class="line-num2">255</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -15918,7 +15863,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">261</div>
+<div class="line-num2">256</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -15929,7 +15874,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">262</div>
+<div class="line-num2">257</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -15940,7 +15885,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">556</div>
-<div class="line-num2">263</div>
+<div class="line-num2">258</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -15962,7 +15907,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">264</div>
+<div class="line-num2">259</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -15973,7 +15918,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">558</div>
-<div class="line-num2">265</div>
+<div class="line-num2">260</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -17106,7 +17051,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">266</div>
+<div class="line-num2">261</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -17117,7 +17062,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">661</div>
-<div class="line-num2">267</div>
+<div class="line-num2">262</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -17172,7 +17117,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">268</div>
+<div class="line-num2">263</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -17183,7 +17128,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">269</div>
+<div class="line-num2">264</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -17194,7 +17139,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">270</div>
+<div class="line-num2">265</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -17205,7 +17150,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">666</div>
-<div class="line-num2">271</div>
+<div class="line-num2">266</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -17249,7 +17194,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">272</div>
+<div class="line-num2">267</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -17260,7 +17205,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">273</div>
+<div class="line-num2">268</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -17271,7 +17216,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">670</div>
-<div class="line-num2">274</div>
+<div class="line-num2">269</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -17337,7 +17282,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">275</div>
+<div class="line-num2">270</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -17348,7 +17293,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">276</div>
+<div class="line-num2">271</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -17359,7 +17304,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">676</div>
-<div class="line-num2">277</div>
+<div class="line-num2">272</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -19999,7 +19944,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">278</div>
+<div class="line-num2">273</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -20010,7 +19955,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">916</div>
-<div class="line-num2">279</div>
+<div class="line-num2">274</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -20021,7 +19966,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">917</div>
-<div class="line-num2">280</div>
+<div class="line-num2">275</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -20032,7 +19977,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">918</div>
-<div class="line-num2">281</div>
+<div class="line-num2">276</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -20516,7 +20461,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">282</div>
+<div class="line-num2">277</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -20527,7 +20472,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">283</div>
+<div class="line-num2">278</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -20538,7 +20483,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">284</div>
+<div class="line-num2">279</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -20549,7 +20494,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">285</div>
+<div class="line-num2">280</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -20560,7 +20505,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">286</div>
+<div class="line-num2">281</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -20571,7 +20516,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">287</div>
+<div class="line-num2">282</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -20582,12 +20527,67 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">288</div>
+<div class="line-num2">283</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
             <span class="d2h-code-line-ctn">        <ins>:class:`~sklearn.neighbors.NearestNeighbors`</ins> <ins>estimator</ins>.</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins d2h-change">
+      <div class="line-num1"></div>
+<div class="line-num2">284</div>
+    </td>
+    <td class="d2h-ins d2h-change">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn"><br></span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins d2h-change">
+      <div class="line-num1"></div>
+<div class="line-num2">285</div>
+    </td>
+    <td class="d2h-ins d2h-change">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">        <ins>If </ins>the <ins>`X`</ins> <ins>passed</ins> <ins>during</ins> <ins>`fit`</ins> <ins>is</ins> <ins>sparse</ins> <ins>or</ins> <ins>`metric`</ins> <ins>is</ins> <ins>invalid</ins> <ins>for</ins></span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins d2h-change">
+      <div class="line-num1"></div>
+<div class="line-num2">286</div>
+    </td>
+    <td class="d2h-ins d2h-change">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">        <ins>both :class:`~sklearn</ins>.<ins>neighbors.KDTree`</ins> <ins>and</ins></span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins d2h-change">
+      <div class="line-num1"></div>
+<div class="line-num2">287</div>
+    </td>
+    <td class="d2h-ins d2h-change">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn"><ins>        :class:`~sklearn.neighbors.BallTree`,</ins> <ins>then it resolves to use the</ins></span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins d2h-change">
+      <div class="line-num1"></div>
+<div class="line-num2">288</div>
+    </td>
+    <td class="d2h-ins d2h-change">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn"><ins>        `&quot;brute&quot;`</ins> <ins>algorithm.</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -20609,7 +20609,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        <ins>If </ins>the <ins>`X`</ins> <ins>passed</ins> <ins>during</ins> <ins>`fit`</ins> <ins>is</ins> <ins>sparse</ins> <ins>or</ins> <ins>`metric`</ins> <ins>is</ins> <ins>invalid</ins> <ins>for</ins></span>
+            <span class="d2h-code-line-ctn"><ins>    leaf_size</ins> <ins>: int, default=40</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -20620,7 +20620,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        <ins>both :class:`~sklearn</ins>.<ins>neighbors.KDTree`</ins> <ins>and</ins></span>
+            <span class="d2h-code-line-ctn"><ins>        Leaf</ins> <ins>size for trees responsible for fast nearest neighbour queries when</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -20631,7 +20631,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><ins>        :class:`~sklearn.neighbors.BallTree`,</ins> <ins>then it resolves to use the</ins></span>
+            <span class="d2h-code-line-ctn"><ins>        a</ins> <ins>KDTree or a BallTree are used as core-distance algorithms. A large</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -20642,7 +20642,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><ins>        `&quot;brute&quot;`</ins> <ins>algorithm.</ins></span>
+            <span class="d2h-code-line-ctn"><ins>        dataset size and small `leaf_size` may induce excessive memory usage.</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -20653,7 +20653,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><br></span>
+            <span class="d2h-code-line-ctn"><ins>        If</ins> <ins>you</ins> <ins>are</ins> <ins>running out of memory consider increasing the `leaf_size`</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -20664,7 +20664,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><ins>    leaf_size</ins> <ins>: int, default=40</ins></span>
+            <span class="d2h-code-line-ctn">        <ins>parameter.</ins> <ins>Ignored</ins> <ins>for</ins> <ins>`</ins>algorithm<ins>=&quot;brute&quot;`.</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -20675,7 +20675,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><ins>        Leaf</ins> <ins>size for trees responsible for fast nearest neighbour queries when</ins></span>
+            <span class="d2h-code-line-ctn"><br></span>
         </div>
     </td>
 </tr><tr>
@@ -20686,7 +20686,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><ins>        a</ins> <ins>KDTree or a BallTree are used as core-distance algorithms. A large</ins></span>
+            <span class="d2h-code-line-ctn"><ins>    n_jobs</ins> <ins>: int</ins>, <ins>default=None</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -20697,7 +20697,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><ins>        dataset size and small `leaf_size` may induce excessive memory usage.</ins></span>
+            <span class="d2h-code-line-ctn">        <ins>Number </ins>of <ins>jobs</ins> <ins>to run in parallel to calculate distances</ins>.</span>
         </div>
     </td>
 </tr><tr>
@@ -20708,7 +20708,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><ins>        If</ins> <ins>you</ins> <ins>are</ins> <ins>running out of memory consider increasing the `leaf_size`</ins></span>
+            <span class="d2h-code-line-ctn"><ins>        `None` means 1 unless in a :obj:`joblib.parallel_backend` context.</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -20719,7 +20719,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        <ins>parameter.</ins> <ins>Ignored</ins> <ins>for</ins> <ins>`</ins>algorithm<ins>=&quot;brute&quot;`.</ins></span>
+            <span class="d2h-code-line-ctn"><ins>        `-1`</ins> <ins>means</ins> <ins>using</ins> <ins>all</ins> <ins>processors</ins>. <ins>See</ins> <ins>:term:`Glossary</ins> <ins>&lt;n_jobs&gt;`</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -20730,68 +20730,13 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><br></span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins d2h-change">
-      <div class="line-num1"></div>
-<div class="line-num2">302</div>
-    </td>
-    <td class="d2h-ins d2h-change">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><ins>    n_jobs</ins> <ins>: int</ins>, <ins>default=None</ins></span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins d2h-change">
-      <div class="line-num1"></div>
-<div class="line-num2">303</div>
-    </td>
-    <td class="d2h-ins d2h-change">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        <ins>Number </ins>of <ins>jobs</ins> <ins>to run in parallel to calculate distances</ins>.</span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins d2h-change">
-      <div class="line-num1"></div>
-<div class="line-num2">304</div>
-    </td>
-    <td class="d2h-ins d2h-change">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><ins>        `None` means 1 unless in a :obj:`joblib.parallel_backend` context.</ins></span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins d2h-change">
-      <div class="line-num1"></div>
-<div class="line-num2">305</div>
-    </td>
-    <td class="d2h-ins d2h-change">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><ins>        `-1`</ins> <ins>means</ins> <ins>using</ins> <ins>all</ins> <ins>processors</ins>. <ins>See</ins> <ins>:term:`Glossary</ins> <ins>&lt;n_jobs&gt;`</ins></span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins d2h-change">
-      <div class="line-num1"></div>
-<div class="line-num2">306</div>
-    </td>
-    <td class="d2h-ins d2h-change">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
             <span class="d2h-code-line-ctn">        <ins>for</ins> <ins>more</ins> <ins>details</ins>.</span>
         </div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">962</div>
-<div class="line-num2">307</div>
+<div class="line-num2">302</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -20813,7 +20758,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">308</div>
+<div class="line-num2">303</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -20824,7 +20769,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">964</div>
-<div class="line-num2">309</div>
+<div class="line-num2">304</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -20901,7 +20846,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">310</div>
+<div class="line-num2">305</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -20912,7 +20857,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">311</div>
+<div class="line-num2">306</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -20923,7 +20868,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">312</div>
+<div class="line-num2">307</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -20934,7 +20879,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">313</div>
+<div class="line-num2">308</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -20945,7 +20890,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">971</div>
-<div class="line-num2">314</div>
+<div class="line-num2">309</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -20967,7 +20912,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">315</div>
+<div class="line-num2">310</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -20978,7 +20923,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">973</div>
-<div class="line-num2">316</div>
+<div class="line-num2">311</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -20989,7 +20934,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">974</div>
-<div class="line-num2">317</div>
+<div class="line-num2">312</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -21000,7 +20945,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">975</div>
-<div class="line-num2">318</div>
+<div class="line-num2">313</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -21011,7 +20956,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">976</div>
-<div class="line-num2">319</div>
+<div class="line-num2">314</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -21209,7 +21154,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">320</div>
+<div class="line-num2">315</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -21220,7 +21165,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">321</div>
+<div class="line-num2">316</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -21231,7 +21176,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">322</div>
+<div class="line-num2">317</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -21242,7 +21187,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">323</div>
+<div class="line-num2">318</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -21253,7 +21198,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">324</div>
+<div class="line-num2">319</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -21264,7 +21209,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">325</div>
+<div class="line-num2">320</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -21275,7 +21220,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">326</div>
+<div class="line-num2">321</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -21286,7 +21231,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">327</div>
+<div class="line-num2">322</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -21297,7 +21242,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">328</div>
+<div class="line-num2">323</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -21308,7 +21253,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">329</div>
+<div class="line-num2">324</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -21319,7 +21264,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">330</div>
+<div class="line-num2">325</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -21330,7 +21275,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">331</div>
+<div class="line-num2">326</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -21341,7 +21286,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">332</div>
+<div class="line-num2">327</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -21352,7 +21297,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">333</div>
+<div class="line-num2">328</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -21363,7 +21308,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">334</div>
+<div class="line-num2">329</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -21374,7 +21319,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">335</div>
+<div class="line-num2">330</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -21385,7 +21330,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">336</div>
+<div class="line-num2">331</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -21396,7 +21341,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">337</div>
+<div class="line-num2">332</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -21407,7 +21352,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">338</div>
+<div class="line-num2">333</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -21418,7 +21363,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">339</div>
+<div class="line-num2">334</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -21429,7 +21374,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">340</div>
+<div class="line-num2">335</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -21440,62 +21385,29 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">341</div>
+<div class="line-num2">336</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        distance array (i.e. when `metric=&quot;precomputed&quot;`).</span>
+            <span class="d2h-code-line-ctn">        distance array (i.e. when `metric=&quot;precomputed&quot;`) and using the</span>
         </div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">342</div>
+<div class="line-num2">337</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><br></span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins">
-      <div class="line-num1"></div>
-<div class="line-num2">343</div>
-    </td>
-    <td class="d2h-ins">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        Note that, even if `copy=False`, a copy may still be made during</span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins">
-      <div class="line-num1"></div>
-<div class="line-num2">344</div>
-    </td>
-    <td class="d2h-ins">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        :term:`fit` if conversion of the passed data is necessary. See</span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins">
-      <div class="line-num1"></div>
-<div class="line-num2">345</div>
-    </td>
-    <td class="d2h-ins">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        :func:`~sklearn.utils.validation.check_array` for more details.</span>
+            <span class="d2h-code-line-ctn">        `&quot;brute&quot;` algorithm (see `algorithm` for details).</span>
         </div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">994</div>
-<div class="line-num2">346</div>
+<div class="line-num2">338</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -21506,7 +21418,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">995</div>
-<div class="line-num2">347</div>
+<div class="line-num2">339</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -21517,7 +21429,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">996</div>
-<div class="line-num2">348</div>
+<div class="line-num2">340</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -21561,7 +21473,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">349</div>
+<div class="line-num2">341</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -21572,7 +21484,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">350</div>
+<div class="line-num2">342</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -21583,7 +21495,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">351</div>
+<div class="line-num2">343</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -21594,7 +21506,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">352</div>
+<div class="line-num2">344</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -21605,7 +21517,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">353</div>
+<div class="line-num2">345</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -21616,7 +21528,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1000</div>
-<div class="line-num2">354</div>
+<div class="line-num2">346</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -21638,7 +21550,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">355</div>
+<div class="line-num2">347</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -21649,7 +21561,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1002</div>
-<div class="line-num2">356</div>
+<div class="line-num2">348</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -21660,7 +21572,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1003</div>
-<div class="line-num2">357</div>
+<div class="line-num2">349</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -21671,7 +21583,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1004</div>
-<div class="line-num2">358</div>
+<div class="line-num2">350</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -21682,7 +21594,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1005</div>
-<div class="line-num2">359</div>
+<div class="line-num2">351</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -21693,7 +21605,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1006</div>
-<div class="line-num2">360</div>
+<div class="line-num2">352</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -22265,7 +22177,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">361</div>
+<div class="line-num2">353</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -22276,7 +22188,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">362</div>
+<div class="line-num2">354</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -22287,7 +22199,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">363</div>
+<div class="line-num2">355</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -22298,7 +22210,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">364</div>
+<div class="line-num2">356</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -22309,7 +22221,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">365</div>
+<div class="line-num2">357</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -22320,12 +22232,100 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">366</div>
+<div class="line-num2">358</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
             <span class="d2h-code-line-ctn">        <ins>has</ins> <ins>feature</ins> <ins>names that are all strings</ins>.</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins d2h-change">
+      <div class="line-num1"></div>
+<div class="line-num2">359</div>
+    </td>
+    <td class="d2h-ins d2h-change">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn"><br></span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins d2h-change">
+      <div class="line-num1"></div>
+<div class="line-num2">360</div>
+    </td>
+    <td class="d2h-ins d2h-change">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">    <ins>centroids_</ins> : <ins>ndarray</ins> <ins>of shape (n_clusters, n_features)</ins></span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins d2h-change">
+      <div class="line-num1"></div>
+<div class="line-num2">361</div>
+    </td>
+    <td class="d2h-ins d2h-change">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">        <ins>A</ins> <ins>collection</ins> <ins>containing</ins> <ins>the</ins> <ins>centroid</ins> <ins>of</ins> <ins>each</ins> <ins>cluster</ins> <ins>calculated</ins> <ins>under</ins></span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins d2h-change">
+      <div class="line-num1"></div>
+<div class="line-num2">362</div>
+    </td>
+    <td class="d2h-ins d2h-change">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">        <ins>the</ins> <ins>standard</ins> <ins>euclidean</ins> <ins>metric.</ins> <ins>The</ins> <ins>centroids</ins> <ins>may fall &quot;outside&quot; their</ins></span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins d2h-change">
+      <div class="line-num1"></div>
+<div class="line-num2">363</div>
+    </td>
+    <td class="d2h-ins d2h-change">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn"><ins>        respective clusters if the clusters themselves are non-convex.</ins></span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins d2h-change">
+      <div class="line-num1"></div>
+<div class="line-num2">364</div>
+    </td>
+    <td class="d2h-ins d2h-change">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn"><br></span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins d2h-change">
+      <div class="line-num1"></div>
+<div class="line-num2">365</div>
+    </td>
+    <td class="d2h-ins d2h-change">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">        <ins>Note</ins> <ins>that</ins> <ins>`n_clusters`</ins> <ins>only</ins> <ins>counts</ins> <ins>non-trivial</ins> <ins>clusters</ins>. <ins>That</ins> <ins>is</ins> <ins>to</ins></span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins d2h-change">
+      <div class="line-num1"></div>
+<div class="line-num2">366</div>
+    </td>
+    <td class="d2h-ins d2h-change">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">        <ins>say, the `-1` label </ins>for <ins>the</ins> <ins>virtual</ins> <ins>noise</ins> <ins>cluster</ins> <ins>is</ins> <ins>excluded</ins>.</span>
         </div>
     </td>
 </tr><tr>
@@ -22347,7 +22347,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">    <ins>centroids_</ins> : <ins>ndarray</ins> <ins>of shape (n_clusters, n_features)</ins></span>
+            <span class="d2h-code-line-ctn">    <ins>medoids_</ins> : <ins>ndarray</ins> <ins>of shape (n_clusters, n_features)</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -22358,7 +22358,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        <ins>A</ins> <ins>collection</ins> <ins>containing</ins> <ins>the</ins> <ins>centroid</ins> <ins>of</ins> <ins>each</ins> <ins>cluster</ins> <ins>calculated</ins> <ins>under</ins></span>
+            <span class="d2h-code-line-ctn">        <ins>A</ins> <ins>collection</ins> <ins>containing</ins> <ins>the</ins> <ins>medoid </ins>of <ins>each</ins> <ins>cluster</ins> <ins>calculated</ins> <ins>under</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -22369,7 +22369,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        <ins>the</ins> <ins>standard</ins> <ins>euclidean</ins> <ins>metric.</ins> <ins>The</ins> <ins>centroids</ins> <ins>may fall &quot;outside&quot; their</ins></span>
+            <span class="d2h-code-line-ctn">        <ins>the</ins> <ins>whichever</ins> <ins>metric</ins> <ins>was</ins> <ins>passed</ins> <ins>to</ins> <ins>the</ins> <ins>`metric`</ins> <ins>parameter.</ins> <ins>The</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -22380,7 +22380,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><ins>        respective clusters if the clusters themselves are non-convex.</ins></span>
+            <span class="d2h-code-line-ctn">        <ins>medoids</ins> <ins>are</ins> <ins>points</ins> <ins>in</ins> <ins>the</ins> <ins>original</ins> <ins>cluster</ins> <ins>which</ins> <ins>minimize</ins> <ins>the</ins> <ins>average</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -22391,7 +22391,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><br></span>
+            <span class="d2h-code-line-ctn">        <ins>distance</ins> <ins>to</ins> <ins>all</ins> <ins>other</ins> <ins>points</ins> <ins>in</ins> <ins>that</ins> <ins>cluster</ins> <ins>under</ins> <ins>the</ins> <ins>chosen</ins> <ins>metric</ins>.</span>
         </div>
     </td>
 </tr><tr>
@@ -22402,7 +22402,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        <ins>Note</ins> <ins>that</ins> <ins>`n_clusters`</ins> <ins>only</ins> <ins>counts</ins> <ins>non-trivial</ins> <ins>clusters</ins>. <ins>That</ins> <ins>is</ins> <ins>to</ins></span>
+            <span class="d2h-code-line-ctn"><ins>        These can be thought of as the result of projecting the `metric`-based</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -22413,7 +22413,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        <ins>say, the `-1` label </ins>for <ins>the</ins> <ins>virtual</ins> <ins>noise</ins> <ins>cluster</ins> <ins>is</ins> <ins>excluded</ins>.</span>
+            <span class="d2h-code-line-ctn"><ins>        centroid</ins> <ins>back</ins> <ins>onto</ins> <ins>the</ins> <ins>cluster.</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -22435,7 +22435,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">    <ins>medoids_</ins> : <ins>ndarray</ins> <ins>of shape (n_clusters, n_features)</ins></span>
+            <span class="d2h-code-line-ctn">        <ins>Note</ins> <ins>that</ins> <ins>`n_clusters`</ins> <ins>only</ins> <ins>counts</ins> <ins>non-trivial</ins> <ins>clusters.</ins> <ins>That</ins> <ins>is to</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -22446,7 +22446,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        <ins>A</ins> <ins>collection</ins> <ins>containing</ins> <ins>the</ins> <ins>medoid </ins>of <ins>each</ins> <ins>cluster</ins> <ins>calculated</ins> <ins>under</ins></span>
+            <span class="d2h-code-line-ctn">        <ins>say,</ins> the <ins>`-1`</ins> <ins>label</ins> <ins>for</ins> <ins>the</ins> <ins>virtual</ins> <ins>noise</ins> <ins>cluster</ins> <ins>is excluded</ins>.</span>
         </div>
     </td>
 </tr><tr>
@@ -22457,7 +22457,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        <ins>the</ins> <ins>whichever</ins> <ins>metric</ins> <ins>was</ins> <ins>passed</ins> <ins>to</ins> <ins>the</ins> <ins>`metric`</ins> <ins>parameter.</ins> <ins>The</ins></span>
+            <span class="d2h-code-line-ctn"><br></span>
         </div>
     </td>
 </tr><tr>
@@ -22468,7 +22468,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        <ins>medoids</ins> <ins>are</ins> <ins>points</ins> <ins>in</ins> <ins>the</ins> <ins>original</ins> <ins>cluster</ins> <ins>which</ins> <ins>minimize</ins> <ins>the</ins> <ins>average</ins></span>
+            <span class="d2h-code-line-ctn">    <ins>See</ins> <ins>Also</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -22479,7 +22479,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        <ins>distance</ins> <ins>to</ins> <ins>all</ins> <ins>other</ins> <ins>points</ins> <ins>in</ins> <ins>that</ins> <ins>cluster</ins> <ins>under</ins> <ins>the</ins> <ins>chosen</ins> <ins>metric</ins>.</span>
+            <span class="d2h-code-line-ctn"><ins>    --------</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -22490,7 +22490,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><ins>        These can be thought of as the result of projecting the `metric`-based</ins></span>
+            <span class="d2h-code-line-ctn"><ins>    DBSCAN</ins> <ins>:</ins> <ins>Density-Based</ins> <ins>Spatial</ins> <ins>Clustering</ins> <ins>of</ins> <ins>Applications</ins></span>
         </div>
     </td>
 </tr><tr>
@@ -22501,7 +22501,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><ins>        centroid</ins> <ins>back</ins> <ins>onto</ins> <ins>the</ins> <ins>cluster.</ins></span>
+            <span class="d2h-code-line-ctn">        <ins>with Noise</ins>.</span>
         </div>
     </td>
 </tr><tr>
@@ -22512,7 +22512,7 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><br></span>
+            <span class="d2h-code-line-ctn"><ins>    OPTICS </ins>:<ins> Ordering Points To Identify the Clustering Structure</ins>.</span>
         </div>
     </td>
 </tr><tr>
@@ -22523,101 +22523,13 @@
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        <ins>Note</ins> <ins>that</ins> <ins>`n_clusters`</ins> <ins>only</ins> <ins>counts</ins> <ins>non-trivial</ins> <ins>clusters.</ins> <ins>That</ins> <ins>is to</ins></span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins d2h-change">
-      <div class="line-num1"></div>
-<div class="line-num2">385</div>
-    </td>
-    <td class="d2h-ins d2h-change">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        <ins>say,</ins> the <ins>`-1`</ins> <ins>label</ins> <ins>for</ins> <ins>the</ins> <ins>virtual</ins> <ins>noise</ins> <ins>cluster</ins> <ins>is excluded</ins>.</span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins d2h-change">
-      <div class="line-num1"></div>
-<div class="line-num2">386</div>
-    </td>
-    <td class="d2h-ins d2h-change">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><br></span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins d2h-change">
-      <div class="line-num1"></div>
-<div class="line-num2">387</div>
-    </td>
-    <td class="d2h-ins d2h-change">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">    <ins>See</ins> <ins>Also</ins></span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins d2h-change">
-      <div class="line-num1"></div>
-<div class="line-num2">388</div>
-    </td>
-    <td class="d2h-ins d2h-change">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><ins>    --------</ins></span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins d2h-change">
-      <div class="line-num1"></div>
-<div class="line-num2">389</div>
-    </td>
-    <td class="d2h-ins d2h-change">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><ins>    DBSCAN</ins> <ins>:</ins> <ins>Density-Based</ins> <ins>Spatial</ins> <ins>Clustering</ins> <ins>of</ins> <ins>Applications</ins></span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins d2h-change">
-      <div class="line-num1"></div>
-<div class="line-num2">390</div>
-    </td>
-    <td class="d2h-ins d2h-change">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        <ins>with Noise</ins>.</span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins d2h-change">
-      <div class="line-num1"></div>
-<div class="line-num2">391</div>
-    </td>
-    <td class="d2h-ins d2h-change">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><ins>    OPTICS </ins>:<ins> Ordering Points To Identify the Clustering Structure</ins>.</span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins d2h-change">
-      <div class="line-num1"></div>
-<div class="line-num2">392</div>
-    </td>
-    <td class="d2h-ins d2h-change">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
             <span class="d2h-code-line-ctn"><ins>    Birch </ins>:<ins> Memory-efficient, online-learning algorithm</ins>.</span>
         </div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1058</div>
-<div class="line-num2">393</div>
+<div class="line-num2">385</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -22628,7 +22540,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1059</div>
-<div class="line-num2">394</div>
+<div class="line-num2">386</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -22639,7 +22551,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1060</div>
-<div class="line-num2">395</div>
+<div class="line-num2">387</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -22651,12 +22563,12 @@
 <tr>
     <td class="d2h-code-linenumber d2h-info"></td>
     <td class="d2h-info">
-        <div class="d2h-code-line">@@ -1077,31 +412,69 @@</div>
+        <div class="d2h-code-line">@@ -1077,31 +404,69 @@</div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1077</div>
-<div class="line-num2">412</div>
+<div class="line-num2">404</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -22667,7 +22579,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1078</div>
-<div class="line-num2">413</div>
+<div class="line-num2">405</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -22678,7 +22590,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1079</div>
-<div class="line-num2">414</div>
+<div class="line-num2">406</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -22722,7 +22634,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">415</div>
+<div class="line-num2">407</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -22733,7 +22645,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">416</div>
+<div class="line-num2">408</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -22744,7 +22656,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">417</div>
+<div class="line-num2">409</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -22755,7 +22667,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">418</div>
+<div class="line-num2">410</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -22766,7 +22678,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">419</div>
+<div class="line-num2">411</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -22777,7 +22689,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">420</div>
+<div class="line-num2">412</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -22788,7 +22700,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">421</div>
+<div class="line-num2">413</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -22799,7 +22711,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">422</div>
+<div class="line-num2">414</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -22810,7 +22722,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">423</div>
+<div class="line-num2">415</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -22821,7 +22733,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">424</div>
+<div class="line-num2">416</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -22832,7 +22744,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">425</div>
+<div class="line-num2">417</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -22843,7 +22755,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">426</div>
+<div class="line-num2">418</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -22854,7 +22766,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">427</div>
+<div class="line-num2">419</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -22865,7 +22777,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">428</div>
+<div class="line-num2">420</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -22876,7 +22788,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1083</div>
-<div class="line-num2">429</div>
+<div class="line-num2">421</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -22887,7 +22799,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1084</div>
-<div class="line-num2">430</div>
+<div class="line-num2">422</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -22898,7 +22810,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">431</div>
+<div class="line-num2">423</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -22909,7 +22821,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">432</div>
+<div class="line-num2">424</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -22920,7 +22832,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">433</div>
+<div class="line-num2">425</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -22931,7 +22843,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">434</div>
+<div class="line-num2">426</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -22942,7 +22854,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">435</div>
+<div class="line-num2">427</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -22953,7 +22865,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">436</div>
+<div class="line-num2">428</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -22964,7 +22876,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">437</div>
+<div class="line-num2">429</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -22975,7 +22887,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">438</div>
+<div class="line-num2">430</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -22986,7 +22898,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">439</div>
+<div class="line-num2">431</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -22997,7 +22909,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">440</div>
+<div class="line-num2">432</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -23008,7 +22920,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">441</div>
+<div class="line-num2">433</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -23019,7 +22931,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">442</div>
+<div class="line-num2">434</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -23030,7 +22942,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">443</div>
+<div class="line-num2">435</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -23041,7 +22953,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">444</div>
+<div class="line-num2">436</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -23052,7 +22964,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">445</div>
+<div class="line-num2">437</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -23063,7 +22975,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">446</div>
+<div class="line-num2">438</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -23074,7 +22986,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">447</div>
+<div class="line-num2">439</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -23085,7 +22997,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">448</div>
+<div class="line-num2">440</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -23096,7 +23008,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">449</div>
+<div class="line-num2">441</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -23107,7 +23019,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">450</div>
+<div class="line-num2">442</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -23118,7 +23030,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">451</div>
+<div class="line-num2">443</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -23129,7 +23041,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">452</div>
+<div class="line-num2">444</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -23140,7 +23052,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">453</div>
+<div class="line-num2">445</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -23151,7 +23063,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">454</div>
+<div class="line-num2">446</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -23162,7 +23074,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">455</div>
+<div class="line-num2">447</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -23173,7 +23085,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">456</div>
+<div class="line-num2">448</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -23184,7 +23096,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">457</div>
+<div class="line-num2">449</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -23195,7 +23107,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">458</div>
+<div class="line-num2">450</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -23206,7 +23118,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">459</div>
+<div class="line-num2">451</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -23217,7 +23129,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">460</div>
+<div class="line-num2">452</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -23228,7 +23140,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">461</div>
+<div class="line-num2">453</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -23239,7 +23151,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1085</div>
-<div class="line-num2">462</div>
+<div class="line-num2">454</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -23250,7 +23162,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1086</div>
-<div class="line-num2">463</div>
+<div class="line-num2">455</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -23261,7 +23173,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1087</div>
-<div class="line-num2">464</div>
+<div class="line-num2">456</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -23272,7 +23184,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1088</div>
-<div class="line-num2">465</div>
+<div class="line-num2">457</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -23283,7 +23195,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1089</div>
-<div class="line-num2">466</div>
+<div class="line-num2">458</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -23305,7 +23217,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">467</div>
+<div class="line-num2">459</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -23316,7 +23228,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1091</div>
-<div class="line-num2">468</div>
+<div class="line-num2">460</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -23327,7 +23239,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">469</div>
+<div class="line-num2">461</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -23338,7 +23250,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1092</div>
-<div class="line-num2">470</div>
+<div class="line-num2">462</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -23371,7 +23283,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">471</div>
+<div class="line-num2">463</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -23382,7 +23294,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1095</div>
-<div class="line-num2">472</div>
+<div class="line-num2">464</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -23437,7 +23349,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">473</div>
+<div class="line-num2">465</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -23448,7 +23360,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1100</div>
-<div class="line-num2">474</div>
+<div class="line-num2">466</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -23459,7 +23371,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1101</div>
-<div class="line-num2">475</div>
+<div class="line-num2">467</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -23503,7 +23415,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">476</div>
+<div class="line-num2">468</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -23514,7 +23426,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">477</div>
+<div class="line-num2">469</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -23525,7 +23437,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1105</div>
-<div class="line-num2">478</div>
+<div class="line-num2">470</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -23536,7 +23448,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1106</div>
-<div class="line-num2">479</div>
+<div class="line-num2">471</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -23547,7 +23459,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1107</div>
-<div class="line-num2">480</div>
+<div class="line-num2">472</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -23559,12 +23471,12 @@
 <tr>
     <td class="d2h-code-linenumber d2h-info"></td>
     <td class="d2h-info">
-        <div class="d2h-code-line">@@ -1109,233 +482,254 @@</div>
+        <div class="d2h-code-line">@@ -1109,233 +474,254 @@</div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1109</div>
-<div class="line-num2">482</div>
+<div class="line-num2">474</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -23575,7 +23487,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1110</div>
-<div class="line-num2">483</div>
+<div class="line-num2">475</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -23586,7 +23498,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1111</div>
-<div class="line-num2">484</div>
+<div class="line-num2">476</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -23608,7 +23520,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">485</div>
+<div class="line-num2">477</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -23619,7 +23531,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1113</div>
-<div class="line-num2">486</div>
+<div class="line-num2">478</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -23630,7 +23542,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1114</div>
-<div class="line-num2">487</div>
+<div class="line-num2">479</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -23685,7 +23597,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">488</div>
+<div class="line-num2">480</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -23696,7 +23608,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1119</div>
-<div class="line-num2">489</div>
+<div class="line-num2">481</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -23707,7 +23619,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1120</div>
-<div class="line-num2">490</div>
+<div class="line-num2">482</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -23850,7 +23762,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">491</div>
+<div class="line-num2">483</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -23861,7 +23773,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">492</div>
+<div class="line-num2">484</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -23872,7 +23784,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1133</div>
-<div class="line-num2">493</div>
+<div class="line-num2">485</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -23883,7 +23795,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1134</div>
-<div class="line-num2">494</div>
+<div class="line-num2">486</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -23905,7 +23817,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">495</div>
+<div class="line-num2">487</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -23916,7 +23828,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1136</div>
-<div class="line-num2">496</div>
+<div class="line-num2">488</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -23927,7 +23839,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1137</div>
-<div class="line-num2">497</div>
+<div class="line-num2">489</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -23938,7 +23850,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1138</div>
-<div class="line-num2">498</div>
+<div class="line-num2">490</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -23971,7 +23883,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">499</div>
+<div class="line-num2">491</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -23982,7 +23894,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">500</div>
+<div class="line-num2">492</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -23993,7 +23905,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1141</div>
-<div class="line-num2">501</div>
+<div class="line-num2">493</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -24015,7 +23927,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">502</div>
+<div class="line-num2">494</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -24026,7 +23938,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">503</div>
+<div class="line-num2">495</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -24037,7 +23949,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">504</div>
+<div class="line-num2">496</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -24048,7 +23960,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">505</div>
+<div class="line-num2">497</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -24059,7 +23971,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1143</div>
-<div class="line-num2">506</div>
+<div class="line-num2">498</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -24070,7 +23982,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1144</div>
-<div class="line-num2">507</div>
+<div class="line-num2">499</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -24081,7 +23993,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1145</div>
-<div class="line-num2">508</div>
+<div class="line-num2">500</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -24092,7 +24004,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1146</div>
-<div class="line-num2">509</div>
+<div class="line-num2">501</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -24114,7 +24026,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">510</div>
+<div class="line-num2">502</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -24125,7 +24037,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1148</div>
-<div class="line-num2">511</div>
+<div class="line-num2">503</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -24136,7 +24048,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">512</div>
+<div class="line-num2">504</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -24147,7 +24059,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">513</div>
+<div class="line-num2">505</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -24158,7 +24070,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1149</div>
-<div class="line-num2">514</div>
+<div class="line-num2">506</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -24169,7 +24081,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1150</div>
-<div class="line-num2">515</div>
+<div class="line-num2">507</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -24202,7 +24114,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">516</div>
+<div class="line-num2">508</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -24213,7 +24125,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">517</div>
+<div class="line-num2">509</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -24224,7 +24136,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">518</div>
+<div class="line-num2">510</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -24235,7 +24147,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">519</div>
+<div class="line-num2">511</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -24246,7 +24158,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">520</div>
+<div class="line-num2">512</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -24257,7 +24169,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">521</div>
+<div class="line-num2">513</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -24268,7 +24180,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1153</div>
-<div class="line-num2">522</div>
+<div class="line-num2">514</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -24279,7 +24191,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">523</div>
+<div class="line-num2">515</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -24290,7 +24202,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">524</div>
+<div class="line-num2">516</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -24301,7 +24213,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">525</div>
+<div class="line-num2">517</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -24312,7 +24224,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">526</div>
+<div class="line-num2">518</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -24323,7 +24235,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">527</div>
+<div class="line-num2">519</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -24334,7 +24246,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1154</div>
-<div class="line-num2">528</div>
+<div class="line-num2">520</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -24367,7 +24279,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">529</div>
+<div class="line-num2">521</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -24378,7 +24290,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1157</div>
-<div class="line-num2">530</div>
+<div class="line-num2">522</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -24488,7 +24400,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">531</div>
+<div class="line-num2">523</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -24499,7 +24411,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">532</div>
+<div class="line-num2">524</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -24510,7 +24422,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">533</div>
+<div class="line-num2">525</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -24521,7 +24433,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">534</div>
+<div class="line-num2">526</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -24532,7 +24444,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">535</div>
+<div class="line-num2">527</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -24543,7 +24455,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">536</div>
+<div class="line-num2">528</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -24554,7 +24466,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">537</div>
+<div class="line-num2">529</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -24565,7 +24477,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">538</div>
+<div class="line-num2">530</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -24576,7 +24488,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">539</div>
+<div class="line-num2">531</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -24587,7 +24499,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">540</div>
+<div class="line-num2">532</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -24598,7 +24510,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">541</div>
+<div class="line-num2">533</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -24609,7 +24521,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">542</div>
+<div class="line-num2">534</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -24620,7 +24532,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">543</div>
+<div class="line-num2">535</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -24631,7 +24543,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">544</div>
+<div class="line-num2">536</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -24642,7 +24554,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">545</div>
+<div class="line-num2">537</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -24653,7 +24565,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">546</div>
+<div class="line-num2">538</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -24664,7 +24576,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">547</div>
+<div class="line-num2">539</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -24675,7 +24587,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">548</div>
+<div class="line-num2">540</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -24686,7 +24598,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1167</div>
-<div class="line-num2">549</div>
+<div class="line-num2">541</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -24697,7 +24609,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1168</div>
-<div class="line-num2">550</div>
+<div class="line-num2">542</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -24730,7 +24642,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">551</div>
+<div class="line-num2">543</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -24741,7 +24653,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">552</div>
+<div class="line-num2">544</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -24752,7 +24664,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">553</div>
+<div class="line-num2">545</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -24763,7 +24675,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">554</div>
+<div class="line-num2">546</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -24774,7 +24686,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">555</div>
+<div class="line-num2">547</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -24785,7 +24697,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1171</div>
-<div class="line-num2">556</div>
+<div class="line-num2">548</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -24906,7 +24818,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">557</div>
+<div class="line-num2">549</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -24917,7 +24829,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">558</div>
+<div class="line-num2">550</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -24928,7 +24840,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">559</div>
+<div class="line-num2">551</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -24939,7 +24851,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">560</div>
+<div class="line-num2">552</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -24950,7 +24862,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">561</div>
+<div class="line-num2">553</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -24961,7 +24873,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">562</div>
+<div class="line-num2">554</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -24972,7 +24884,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">563</div>
+<div class="line-num2">555</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -24983,7 +24895,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">564</div>
+<div class="line-num2">556</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -24994,7 +24906,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">565</div>
+<div class="line-num2">557</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -25005,7 +24917,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">566</div>
+<div class="line-num2">558</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -25016,7 +24928,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">567</div>
+<div class="line-num2">559</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25027,7 +24939,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">568</div>
+<div class="line-num2">560</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25038,7 +24950,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">569</div>
+<div class="line-num2">561</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25049,7 +24961,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">570</div>
+<div class="line-num2">562</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25060,7 +24972,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">571</div>
+<div class="line-num2">563</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25071,7 +24983,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">572</div>
+<div class="line-num2">564</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25082,7 +24994,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">573</div>
+<div class="line-num2">565</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25093,7 +25005,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">574</div>
+<div class="line-num2">566</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25104,7 +25016,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">575</div>
+<div class="line-num2">567</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25115,7 +25027,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">576</div>
+<div class="line-num2">568</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25126,7 +25038,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">577</div>
+<div class="line-num2">569</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25137,7 +25049,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">578</div>
+<div class="line-num2">570</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25148,7 +25060,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">579</div>
+<div class="line-num2">571</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25159,7 +25071,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">580</div>
+<div class="line-num2">572</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25170,7 +25082,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">581</div>
+<div class="line-num2">573</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25181,7 +25093,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">582</div>
+<div class="line-num2">574</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25192,7 +25104,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">583</div>
+<div class="line-num2">575</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25203,7 +25115,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">584</div>
+<div class="line-num2">576</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25214,7 +25126,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">585</div>
+<div class="line-num2">577</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25225,7 +25137,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">586</div>
+<div class="line-num2">578</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25236,7 +25148,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">587</div>
+<div class="line-num2">579</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25247,7 +25159,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">588</div>
+<div class="line-num2">580</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25258,7 +25170,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">589</div>
+<div class="line-num2">581</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25269,7 +25181,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">590</div>
+<div class="line-num2">582</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25280,7 +25192,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">591</div>
+<div class="line-num2">583</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25291,7 +25203,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">592</div>
+<div class="line-num2">584</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25302,7 +25214,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">593</div>
+<div class="line-num2">585</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25313,7 +25225,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">594</div>
+<div class="line-num2">586</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25324,7 +25236,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">595</div>
+<div class="line-num2">587</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25335,7 +25247,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">596</div>
+<div class="line-num2">588</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25346,7 +25258,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">597</div>
+<div class="line-num2">589</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25357,7 +25269,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">598</div>
+<div class="line-num2">590</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -25368,12 +25280,100 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">599</div>
+<div class="line-num2">591</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
             <span class="d2h-code-line-ctn">            )</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins">
+      <div class="line-num1"></div>
+<div class="line-num2">592</div>
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn"><br></span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins">
+      <div class="line-num1"></div>
+<div class="line-num2">593</div>
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">        if self.algorithm != &quot;auto&quot;:</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins">
+      <div class="line-num1"></div>
+<div class="line-num2">594</div>
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">            if (</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins">
+      <div class="line-num1"></div>
+<div class="line-num2">595</div>
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">                self.metric != &quot;precomputed&quot;</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins">
+      <div class="line-num1"></div>
+<div class="line-num2">596</div>
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">                and issparse(X)</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins">
+      <div class="line-num1"></div>
+<div class="line-num2">597</div>
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">                and self.algorithm != &quot;brute&quot;</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins">
+      <div class="line-num1"></div>
+<div class="line-num2">598</div>
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">            ):</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-linenumber d2h-ins">
+      <div class="line-num1"></div>
+<div class="line-num2">599</div>
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-line">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">                raise ValueError(&quot;Sparse data matrices only support algorithm `brute`.&quot;)</span>
         </div>
     </td>
 </tr><tr>
@@ -25395,7 +25395,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        if self.algorithm != &quot;auto&quot;:</span>
+            <span class="d2h-code-line-ctn">            if self.algorithm == &quot;brute&quot;:</span>
         </div>
     </td>
 </tr><tr>
@@ -25406,7 +25406,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">            if (</span>
+            <span class="d2h-code-line-ctn">                mst_func = _hdbscan_brute</span>
         </div>
     </td>
 </tr><tr>
@@ -25417,7 +25417,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">                self.metric != &quot;precomputed&quot;</span>
+            <span class="d2h-code-line-ctn">                kwargs[&quot;copy&quot;] = self.copy</span>
         </div>
     </td>
 </tr><tr>
@@ -25428,7 +25428,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">                and issparse(X)</span>
+            <span class="d2h-code-line-ctn">                for key in (&quot;algo&quot;, &quot;leaf_size&quot;):</span>
         </div>
     </td>
 </tr><tr>
@@ -25439,7 +25439,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">                and self.algorithm != &quot;brute&quot;</span>
+            <span class="d2h-code-line-ctn">                    kwargs.pop(key, None)</span>
         </div>
     </td>
 </tr><tr>
@@ -25450,7 +25450,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">            ):</span>
+            <span class="d2h-code-line-ctn">            elif self.algorithm == &quot;kdtree&quot;:</span>
         </div>
     </td>
 </tr><tr>
@@ -25461,7 +25461,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">                raise ValueError(&quot;Sparse data matrices only support algorithm `brute`.&quot;)</span>
+            <span class="d2h-code-line-ctn">                mst_func = _hdbscan_prims</span>
         </div>
     </td>
 </tr><tr>
@@ -25472,7 +25472,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><br></span>
+            <span class="d2h-code-line-ctn">            elif self.algorithm == &quot;balltree&quot;:</span>
         </div>
     </td>
 </tr><tr>
@@ -25483,7 +25483,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">            if self.algorithm == &quot;brute&quot;:</span>
+            <span class="d2h-code-line-ctn">                mst_func = _hdbscan_prims</span>
         </div>
     </td>
 </tr><tr>
@@ -25494,7 +25494,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">                mst_func = _hdbscan_brute</span>
+            <span class="d2h-code-line-ctn">                kwargs[&quot;algo&quot;] = &quot;ball_tree&quot;</span>
         </div>
     </td>
 </tr><tr>
@@ -25505,7 +25505,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">                kwargs[&quot;copy&quot;] = self.copy</span>
+            <span class="d2h-code-line-ctn">        else:</span>
         </div>
     </td>
 </tr><tr>
@@ -25516,7 +25516,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">                for key in (&quot;algo&quot;, &quot;leaf_size&quot;):</span>
+            <span class="d2h-code-line-ctn">            if issparse(X) or self.metric not in FAST_METRICS:</span>
         </div>
     </td>
 </tr><tr>
@@ -25527,7 +25527,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">                    kwargs.pop(key, None)</span>
+            <span class="d2h-code-line-ctn">                # We can&#x27;t do much with sparse matrices ...</span>
         </div>
     </td>
 </tr><tr>
@@ -25538,7 +25538,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">            elif self.algorithm == &quot;kdtree&quot;:</span>
+            <span class="d2h-code-line-ctn">                mst_func = _hdbscan_brute</span>
         </div>
     </td>
 </tr><tr>
@@ -25549,7 +25549,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">                mst_func = _hdbscan_prims</span>
+            <span class="d2h-code-line-ctn">                kwargs[&quot;copy&quot;] = self.copy</span>
         </div>
     </td>
 </tr><tr>
@@ -25560,7 +25560,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">            elif self.algorithm == &quot;balltree&quot;:</span>
+            <span class="d2h-code-line-ctn">                for key in (&quot;algo&quot;, &quot;leaf_size&quot;):</span>
         </div>
     </td>
 </tr><tr>
@@ -25571,7 +25571,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">                mst_func = _hdbscan_prims</span>
+            <span class="d2h-code-line-ctn">                    kwargs.pop(key, None)</span>
         </div>
     </td>
 </tr><tr>
@@ -25582,7 +25582,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">                kwargs[&quot;algo&quot;] = &quot;ball_tree&quot;</span>
+            <span class="d2h-code-line-ctn">            elif self.metric in KDTree.valid_metrics:</span>
         </div>
     </td>
 </tr><tr>
@@ -25593,7 +25593,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">        else:</span>
+            <span class="d2h-code-line-ctn">                # TODO: Benchmark KD vs Ball Tree efficiency</span>
         </div>
     </td>
 </tr><tr>
@@ -25604,7 +25604,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">            if issparse(X) or self.metric not in FAST_METRICS:</span>
+            <span class="d2h-code-line-ctn">                mst_func = _hdbscan_prims</span>
         </div>
     </td>
 </tr><tr>
@@ -25615,7 +25615,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">                # We can&#x27;t do much with sparse matrices ...</span>
+            <span class="d2h-code-line-ctn">            else:</span>
         </div>
     </td>
 </tr><tr>
@@ -25626,7 +25626,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">                mst_func = _hdbscan_brute</span>
+            <span class="d2h-code-line-ctn">                # Metric is a valid BallTree metric</span>
         </div>
     </td>
 </tr><tr>
@@ -25637,7 +25637,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">                kwargs[&quot;copy&quot;] = self.copy</span>
+            <span class="d2h-code-line-ctn">                mst_func = _hdbscan_prims</span>
         </div>
     </td>
 </tr><tr>
@@ -25648,7 +25648,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">                for key in (&quot;algo&quot;, &quot;leaf_size&quot;):</span>
+            <span class="d2h-code-line-ctn">                kwargs[&quot;algo&quot;] = &quot;ball_tree&quot;</span>
         </div>
     </td>
 </tr><tr>
@@ -25659,7 +25659,7 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">                    kwargs.pop(key, None)</span>
+            <span class="d2h-code-line-ctn"><br></span>
         </div>
     </td>
 </tr><tr>
@@ -25670,101 +25670,13 @@
     <td class="d2h-ins">
         <div class="d2h-code-line">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">            elif self.metric in KDTree.valid_metrics:</span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins">
-      <div class="line-num1"></div>
-<div class="line-num2">627</div>
-    </td>
-    <td class="d2h-ins">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">                # TODO: Benchmark KD vs Ball Tree efficiency</span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins">
-      <div class="line-num1"></div>
-<div class="line-num2">628</div>
-    </td>
-    <td class="d2h-ins">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">                mst_func = _hdbscan_prims</span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins">
-      <div class="line-num1"></div>
-<div class="line-num2">629</div>
-    </td>
-    <td class="d2h-ins">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">            else:</span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins">
-      <div class="line-num1"></div>
-<div class="line-num2">630</div>
-    </td>
-    <td class="d2h-ins">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">                # Metric is a valid BallTree metric</span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins">
-      <div class="line-num1"></div>
-<div class="line-num2">631</div>
-    </td>
-    <td class="d2h-ins">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">                mst_func = _hdbscan_prims</span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins">
-      <div class="line-num1"></div>
-<div class="line-num2">632</div>
-    </td>
-    <td class="d2h-ins">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">                kwargs[&quot;algo&quot;] = &quot;ball_tree&quot;</span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins">
-      <div class="line-num1"></div>
-<div class="line-num2">633</div>
-    </td>
-    <td class="d2h-ins">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn"><br></span>
-        </div>
-    </td>
-</tr><tr>
-    <td class="d2h-code-linenumber d2h-ins">
-      <div class="line-num1"></div>
-<div class="line-num2">634</div>
-    </td>
-    <td class="d2h-ins">
-        <div class="d2h-code-line">
-            <span class="d2h-code-line-prefix">+</span>
             <span class="d2h-code-line-ctn">        single_linkage_tree = mst_func(**kwargs)</span>
         </div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1182</div>
-<div class="line-num2">635</div>
+<div class="line-num2">627</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -25775,7 +25687,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1183</div>
-<div class="line-num2">636</div>
+<div class="line-num2">628</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -25786,7 +25698,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1184</div>
-<div class="line-num2">637</div>
+<div class="line-num2">629</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -25797,7 +25709,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1185</div>
-<div class="line-num2">638</div>
+<div class="line-num2">630</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -25951,7 +25863,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">639</div>
+<div class="line-num2">631</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -25962,7 +25874,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">640</div>
+<div class="line-num2">632</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -25973,7 +25885,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">641</div>
+<div class="line-num2">633</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -25984,7 +25896,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">642</div>
+<div class="line-num2">634</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -25995,7 +25907,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">643</div>
+<div class="line-num2">635</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -26006,7 +25918,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">644</div>
+<div class="line-num2">636</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -26017,7 +25929,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">645</div>
+<div class="line-num2">637</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -26028,7 +25940,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">646</div>
+<div class="line-num2">638</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -26039,7 +25951,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">647</div>
+<div class="line-num2">639</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -26050,7 +25962,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">648</div>
+<div class="line-num2">640</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -26061,7 +25973,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">649</div>
+<div class="line-num2">641</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -26072,7 +25984,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">650</div>
+<div class="line-num2">642</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -26083,7 +25995,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">651</div>
+<div class="line-num2">643</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -26094,7 +26006,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">652</div>
+<div class="line-num2">644</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -26105,7 +26017,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">653</div>
+<div class="line-num2">645</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -26116,7 +26028,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">654</div>
+<div class="line-num2">646</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -26127,7 +26039,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1199</div>
-<div class="line-num2">655</div>
+<div class="line-num2">647</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -26149,7 +26061,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">656</div>
+<div class="line-num2">648</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -26160,7 +26072,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1201</div>
-<div class="line-num2">657</div>
+<div class="line-num2">649</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -26171,7 +26083,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">658</div>
+<div class="line-num2">650</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -26182,7 +26094,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1202</div>
-<div class="line-num2">659</div>
+<div class="line-num2">651</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -26193,7 +26105,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1203</div>
-<div class="line-num2">660</div>
+<div class="line-num2">652</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -26215,7 +26127,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">661</div>
+<div class="line-num2">653</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -26226,7 +26138,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1205</div>
-<div class="line-num2">662</div>
+<div class="line-num2">654</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -26237,7 +26149,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">663</div>
+<div class="line-num2">655</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -26248,7 +26160,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1206</div>
-<div class="line-num2">664</div>
+<div class="line-num2">656</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -26259,7 +26171,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1207</div>
-<div class="line-num2">665</div>
+<div class="line-num2">657</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -26303,7 +26215,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">666</div>
+<div class="line-num2">658</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -26314,7 +26226,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">667</div>
+<div class="line-num2">659</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -26325,7 +26237,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1211</div>
-<div class="line-num2">668</div>
+<div class="line-num2">660</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -26336,7 +26248,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1212</div>
-<div class="line-num2">669</div>
+<div class="line-num2">661</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -26347,7 +26259,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1213</div>
-<div class="line-num2">670</div>
+<div class="line-num2">662</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -26369,7 +26281,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">671</div>
+<div class="line-num2">663</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -26380,7 +26292,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1215</div>
-<div class="line-num2">672</div>
+<div class="line-num2">664</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -26391,7 +26303,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1216</div>
-<div class="line-num2">673</div>
+<div class="line-num2">665</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -26402,7 +26314,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1217</div>
-<div class="line-num2">674</div>
+<div class="line-num2">666</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -26435,7 +26347,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">675</div>
+<div class="line-num2">667</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -26446,7 +26358,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">676</div>
+<div class="line-num2">668</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -26457,7 +26369,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1220</div>
-<div class="line-num2">677</div>
+<div class="line-num2">669</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -26479,7 +26391,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">678</div>
+<div class="line-num2">670</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -26490,7 +26402,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">679</div>
+<div class="line-num2">671</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -26501,7 +26413,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">680</div>
+<div class="line-num2">672</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -26512,7 +26424,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">681</div>
+<div class="line-num2">673</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -26523,7 +26435,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1222</div>
-<div class="line-num2">682</div>
+<div class="line-num2">674</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -26534,7 +26446,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1223</div>
-<div class="line-num2">683</div>
+<div class="line-num2">675</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -26545,7 +26457,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1224</div>
-<div class="line-num2">684</div>
+<div class="line-num2">676</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -26578,7 +26490,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">685</div>
+<div class="line-num2">677</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -26589,7 +26501,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">686</div>
+<div class="line-num2">678</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -26600,7 +26512,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1227</div>
-<div class="line-num2">687</div>
+<div class="line-num2">679</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -26611,7 +26523,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1228</div>
-<div class="line-num2">688</div>
+<div class="line-num2">680</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -26622,7 +26534,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1229</div>
-<div class="line-num2">689</div>
+<div class="line-num2">681</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -26633,7 +26545,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1230</div>
-<div class="line-num2">690</div>
+<div class="line-num2">682</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -27458,7 +27370,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">691</div>
+<div class="line-num2">683</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27469,7 +27381,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">692</div>
+<div class="line-num2">684</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27480,7 +27392,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">693</div>
+<div class="line-num2">685</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27491,7 +27403,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">694</div>
+<div class="line-num2">686</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27502,7 +27414,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">695</div>
+<div class="line-num2">687</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27513,7 +27425,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">696</div>
+<div class="line-num2">688</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27524,7 +27436,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">697</div>
+<div class="line-num2">689</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27535,7 +27447,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">698</div>
+<div class="line-num2">690</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27546,7 +27458,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">699</div>
+<div class="line-num2">691</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27557,7 +27469,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">700</div>
+<div class="line-num2">692</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27568,7 +27480,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">701</div>
+<div class="line-num2">693</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27579,7 +27491,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">702</div>
+<div class="line-num2">694</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27590,7 +27502,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">703</div>
+<div class="line-num2">695</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27601,7 +27513,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">704</div>
+<div class="line-num2">696</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27612,7 +27524,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">705</div>
+<div class="line-num2">697</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27623,7 +27535,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">706</div>
+<div class="line-num2">698</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27634,7 +27546,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">707</div>
+<div class="line-num2">699</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27645,7 +27557,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">708</div>
+<div class="line-num2">700</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27656,7 +27568,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">709</div>
+<div class="line-num2">701</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27667,7 +27579,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">710</div>
+<div class="line-num2">702</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27678,7 +27590,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">711</div>
+<div class="line-num2">703</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27689,7 +27601,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">712</div>
+<div class="line-num2">704</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27700,7 +27612,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">713</div>
+<div class="line-num2">705</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27711,7 +27623,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">714</div>
+<div class="line-num2">706</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27722,7 +27634,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">715</div>
+<div class="line-num2">707</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27733,7 +27645,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">716</div>
+<div class="line-num2">708</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27744,7 +27656,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">717</div>
+<div class="line-num2">709</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27755,7 +27667,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">718</div>
+<div class="line-num2">710</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27766,7 +27678,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">719</div>
+<div class="line-num2">711</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27777,7 +27689,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1305</div>
-<div class="line-num2">720</div>
+<div class="line-num2">712</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -27832,7 +27744,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">721</div>
+<div class="line-num2">713</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27843,7 +27755,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1310</div>
-<div class="line-num2">722</div>
+<div class="line-num2">714</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -27876,7 +27788,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">723</div>
+<div class="line-num2">715</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -27887,7 +27799,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1313</div>
-<div class="line-num2">724</div>
+<div class="line-num2">716</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -27997,7 +27909,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">725</div>
+<div class="line-num2">717</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -28008,7 +27920,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">726</div>
+<div class="line-num2">718</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -28019,7 +27931,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">727</div>
+<div class="line-num2">719</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -28030,7 +27942,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">728</div>
+<div class="line-num2">720</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -28041,7 +27953,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">729</div>
+<div class="line-num2">721</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -28052,7 +27964,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1323</div>
-<div class="line-num2">730</div>
+<div class="line-num2">722</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -28228,7 +28140,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">731</div>
+<div class="line-num2">723</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -28239,7 +28151,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">732</div>
+<div class="line-num2">724</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -28250,7 +28162,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1339</div>
-<div class="line-num2">733</div>
+<div class="line-num2">725</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -28261,7 +28173,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1340</div>
-<div class="line-num2">734</div>
+<div class="line-num2">726</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -28272,7 +28184,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1341</div>
-<div class="line-num2">735</div>
+<div class="line-num2">727</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -28284,12 +28196,12 @@
 <tr>
     <td class="d2h-code-linenumber d2h-info"></td>
     <td class="d2h-info">
-        <div class="d2h-code-line">@@ -1343,183 +737,23 @@</div>
+        <div class="d2h-code-line">@@ -1343,183 +729,23 @@</div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1343</div>
-<div class="line-num2">737</div>
+<div class="line-num2">729</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -28300,7 +28212,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1344</div>
-<div class="line-num2">738</div>
+<div class="line-num2">730</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -28311,7 +28223,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1345</div>
-<div class="line-num2">739</div>
+<div class="line-num2">731</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -28333,7 +28245,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1347</div>
-<div class="line-num2">740</div>
+<div class="line-num2">732</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -28355,7 +28267,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">741</div>
+<div class="line-num2">733</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -28366,7 +28278,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins">
       <div class="line-num1"></div>
-<div class="line-num2">742</div>
+<div class="line-num2">734</div>
     </td>
     <td class="d2h-ins">
         <div class="d2h-code-line">
@@ -28377,7 +28289,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1349</div>
-<div class="line-num2">743</div>
+<div class="line-num2">735</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -28421,7 +28333,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">744</div>
+<div class="line-num2">736</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -28432,7 +28344,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">745</div>
+<div class="line-num2">737</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -28443,7 +28355,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">746</div>
+<div class="line-num2">738</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -28454,7 +28366,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1353</div>
-<div class="line-num2">747</div>
+<div class="line-num2">739</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -28465,7 +28377,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1354</div>
-<div class="line-num2">748</div>
+<div class="line-num2">740</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -28476,7 +28388,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1355</div>
-<div class="line-num2">749</div>
+<div class="line-num2">741</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -28531,7 +28443,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">750</div>
+<div class="line-num2">742</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -28542,7 +28454,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">751</div>
+<div class="line-num2">743</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -28553,7 +28465,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">752</div>
+<div class="line-num2">744</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -28564,7 +28476,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1360</div>
-<div class="line-num2">753</div>
+<div class="line-num2">745</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -30258,7 +30170,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">754</div>
+<div class="line-num2">746</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -30269,7 +30181,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">755</div>
+<div class="line-num2">747</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -30280,7 +30192,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1514</div>
-<div class="line-num2">756</div>
+<div class="line-num2">748</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -30302,7 +30214,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
       <div class="line-num1">1516</div>
-<div class="line-num2">757</div>
+<div class="line-num2">749</div>
     </td>
     <td class="d2h-cntx">
         <div class="d2h-code-line">
@@ -30412,7 +30324,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">758</div>
+<div class="line-num2">750</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
@@ -30423,7 +30335,7 @@
 </tr><tr>
     <td class="d2h-code-linenumber d2h-ins d2h-change">
       <div class="line-num1"></div>
-<div class="line-num2">759</div>
+<div class="line-num2">751</div>
     </td>
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line">
